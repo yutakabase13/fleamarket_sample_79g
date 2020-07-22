@@ -23,7 +23,7 @@ Things you may want to cover:
 | nickname              | string  | null:false               |
 | email                 | email   | null:false               |
 | password              | string  | null:false, unique: true |
-| Password_configration | string  | null:false, unique:true  |
+| password_configration | string  | null:false, unique:true  |
 
 ### association
 has_one :account
