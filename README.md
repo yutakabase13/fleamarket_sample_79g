@@ -28,7 +28,6 @@ Things you may want to cover:
 ### association
 has_one :account
 has_one :address
-has_one :image
 has_one :credit
 has_many :items
 
@@ -77,7 +76,7 @@ belongs_to :user
 | Column        | Type       | Options          |
 | ------------- | ---------- | ---------------- |
 | id            | integer    |                  |
-| item_name     | string     | null:false       |
+| name          | string     | null:false       |
 | description   | text       | null:false       |
 | item_status   | string     | null:false       |
 | shipping_fee  | integer    | null:false       |
@@ -86,14 +85,13 @@ belongs_to :user
 | seller_id     | references | foreign_key:true |
 | buyer_id      | references | foreign_key:true |
 | category_id   | references | foreign_key:true |
-| image_id      | references | foreign_key:true |
-| brand_id   | references | foreign_key:true |
+| brand_id      | references | foreign_key:true |
 
 ### association
 belongs_to :user
-has_many :category
+belongs_to :category
 has_many :images
-has_many :brand
+belongs_to :brand
 
 ## Images
 | Column  | Type       | Options          |
@@ -108,21 +106,20 @@ belongs_to :item
 ### association
 
 ## brands
-| Column     | Type       | Options          |
-| ---------- | -----------| ---------------- |
-| id         | integer    |                  |
-| brand_name | string     |                  |
-| item_id    | references | foreign_key:true |
+| Column     | Type       | Options    |
+| ---------- | -----------| ---------- |
+| id         | integer    |            |
+| name       | string     | null:false |
 
 ### association
-belongs_to :user
+has_many :items
 
 ## categories
 | Column        | Type    | Options    |
 | ------------- | ------- | ---------- |
 | id            | integer |            |
-| category_name | string  | null:false |
-| ancestry      | Integer |            |
+| name          | string  | null:false |
+| ancestry      | integer |            |
 
 ### association
 has_many :items
