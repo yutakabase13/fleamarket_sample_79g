@@ -12,5 +12,5 @@ class Account < ApplicationRecord
     end
   end
   
-  belogns_to :user
+  belongs_to :user
 end
