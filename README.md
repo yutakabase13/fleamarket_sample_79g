@@ -14,7 +14,7 @@ Things you may want to cover:
 * Database creation
 
 * Database ER chart
-<img width="633" alt="スクリーンショット 2020-07-22 18 05 14" src="https://user-images.githubusercontent.com/66852865/88157626-f5fc8c00-cc45-11ea-9769-fec736436a5c.png">
+<img width="633" alt="スクリーンショット 2020-07-22 19 25 52" src="https://user-images.githubusercontent.com/66852865/88165808-3f060d80-cc51-11ea-8d78-de5ee6dd07d6.png">
 
 ## Users
 | Column                | Type    | Options                  |
