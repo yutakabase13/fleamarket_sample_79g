@@ -1,6 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 
-set :application, "flea,arlet_sample_79g"
+set :application, "fleamarket_sample_79g"
 set :repo_url, "git@github.com:bignose-flower/fleamarket_sample_79g.git"
 
 # Default branch is :master
@@ -38,7 +38,7 @@ set :repo_url, "git@github.com:bignose-flower/fleamarket_sample_79g.git"
 # set :ssh_options, verify_host_key: :secure
 
 # Gemfile.lockを見てcapistranoのバージョンを入れる
-lock '3.1'
+lock '3.14.1'
 
 # 自身のアプリ名、リポジトリ名を記述
 
