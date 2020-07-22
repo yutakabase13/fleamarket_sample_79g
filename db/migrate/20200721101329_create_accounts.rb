@@ -6,6 +6,7 @@ class CreateAccounts < ActiveRecord::Migration[6.0]
       t.string :hurigana_first, null: false
       t.string :hurigana_family, null: false
       t.date :birthday, null: false
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end

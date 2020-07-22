@@ -18,15 +18,15 @@ ActiveRecord::Schema.define(version: 2020_07_21_103945) do
     t.string "hurigana_first", null: false
     t.string "hurigana_family", null: false
     t.date "birthday", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "family_name", null: false
+    t.string "shipping_first_name", null: false
+    t.string "shipping_family_name", null: false
     t.string "zipcode", null: false
     t.string "prefecture", null: false
     t.string "city", null: false
