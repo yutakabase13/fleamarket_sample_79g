@@ -6,14 +6,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @account = Account.new
-    @address = Address.new
-    super
+    @user = User.new
   end
 
   # POST /resource
   def create
-    super
+    @user = User.new(sign_up_params)
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render :new and return
+    end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @address = @user.build_address
+    render :new_address
   end
 
   # GET /resource/edit
@@ -40,7 +46,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def sign_up_params
+    params.require(:user).permit(:nickname, :emmail, :password, :password_configration)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
