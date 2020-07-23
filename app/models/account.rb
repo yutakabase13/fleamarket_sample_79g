@@ -8,7 +8,7 @@ class Account < ApplicationRecord
     
     with_options format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/} do
       validates :first_name
-      validates :last_name
+      validates :family_name
     end
   end
   
