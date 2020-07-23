@@ -7,23 +7,13 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-      models:
-        account: アカウント
-        address: 住所
-      attributes:
-        account:
-          format: "%{message}"
-          invalid: "%{attribute}は全角で入力してください"
-        address:
-          format: "%{message}"
-          invalid: "%{attribute}は全角で入力してください"
     models:
       account: アカウント
       address: 住所
     attributes:
       user:
         nickname: ニックネーム
-      account:
+      address:
         shipping_first_name: 名前
         shipping_family_name: 苗字
         shipping_hurigana_first: ふりがな（名前）
@@ -34,12 +24,12 @@ ja:
         address: 番地
         others: マンション名
         phone_number: 電話番号
-      address:
+      account:
         first_name: 名前
         family_name: 苗字
         hurigana_first: ふりがな（名前）
         hurigana_family: ふりがな（苗字）
-        birthday: 誕生日
+        birthday: 誕生日 
   date:
     abbr_day_names:
     - 日
