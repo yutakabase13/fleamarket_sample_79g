@@ -8,19 +8,21 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
       models:
-      account: アカウント
-      address: 住所
-        attributes:
-          account:
-            format: '%{message}'
-            invalid: ’%{attribute}は全角で入力してください’
-          address:
-            format: '%{message}'
-            invalid: ’%{attribute}は全角で入力してください’
+        account: アカウント
+        address: 住所
+      attributes:
+        account:
+          format: "%{message}"
+          invalid: "%{attribute}は全角で入力してください"
+        address:
+          format: "%{message}"
+          invalid: "%{attribute}は全角で入力してください"
     models:
       account: アカウント
       address: 住所
     attributes:
+      user:
+        nickname: ニックネーム
       account:
         shipping_first_name: 名前
         shipping_family_name: 苗字
