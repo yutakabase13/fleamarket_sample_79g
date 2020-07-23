@@ -1,0 +1,20 @@
+.AccountPage
+  .AccountPage__header
+    .header__box
+      = image_tag '/assets/images/logo.png', alt: 'furimaのロゴ', height: '100', width: '300'
+  .login__no
+    .login__notitle
+      アカウントをお持ちでない方はこちら
+    .AccountPage__nobtn
+      %input{type: "submit", value: "新規会員登録", class:"Form__submitBtn"}
+
+  .AccountPage__main
+    .AccountPage__title
+      ログイン
+    .AccountPage__form
+      %form.Form-contents
+        %input{type: "text", placeholder: "メールアドレス", class: "Form-contents__email"}
+        %input{type: "text", placeholder: "パスワード", class: "Form-contents__password"}
+        %input{type: "submit", value: "ログイン", class: "Form-contents__submitBtn"}
+  
+  .single__footer
