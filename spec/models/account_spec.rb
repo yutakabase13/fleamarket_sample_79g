@@ -46,6 +46,16 @@ RSpec.describe Account, type: :model do
           account.valid?
           expect(account.errors[:family_name]).to include('は全角で入力してください')
         end
+        it 'is invalid without hiragana at hurigana_first' do
+          account = build(:account, hurigana_first: '漢字')
+          account.valid?
+          expect(account.errors[:hurigana_first]).to include('は全角ひらがなで入力してください')
+        end
+        it 'is invalid without hiragana at hurigana_family' do
+          account = build(:account, hurigana_family: '漢字')
+          account.valid?
+          expect(account.errors[:hurigana_family]).to include('は全角ひらがなで入力してください')
+        end
       end
     end
   end
