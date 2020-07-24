@@ -46,13 +46,6 @@
             %ul.has_error_test
               %li.has_error_password
                 = @user.errors.full_messages_for(:password_confirmation).first
-              -# %p.Form_info_text
-              -#   ※ 英字と数字の両方を含めて設定してください
-              -# .Checkbox
-              -#   .Checkbox_default
-              -#     %input(type="checkbox" class="icon_check")/
-              -#     %label.reveal_password
-              -#       パスワードを表示する
             .Single_main_container_warrap_content_group
               = f.submit "次へ", class: "Single_main_container_warrap_content_group_submit-btn"
   .Single_footer
