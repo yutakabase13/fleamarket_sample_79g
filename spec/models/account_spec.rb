@@ -29,6 +29,11 @@ RSpec.describe Account, type: :model do
           account.valid?
           expect(account.errors[:hurigana_family]).to include('を入力してください')
         end
+        it 'is invalid without birthday' do
+          account = build(:account, birthday: nil)
+          account.valid?
+          expect(account.errors[:birthday]).to include('を入力してください')
+        end
       end
     end
   end
