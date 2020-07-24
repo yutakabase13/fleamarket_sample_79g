@@ -14,6 +14,11 @@ RSpec.describe Account, type: :model do
           account.valid?
           expect(account.errors[:first_name]).to include('を入力してください')
         end
+        it 'is invalid without family_name' do
+          account = build(:account, family_name: nil)
+          account.valid?
+          expect(account.errors[:family_name]).to include('を入力してください')
+        end
       end
     end
   end
