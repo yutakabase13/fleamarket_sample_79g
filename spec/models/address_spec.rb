@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
-  describe '#create' do
+  describe '#create_address' do
     context 'can save' do
       it 'is valid without others and phone_numbner' do
         expect(build(:address, others: nil, phone_number: nil)).to be_valid
