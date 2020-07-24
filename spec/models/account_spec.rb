@@ -19,6 +19,16 @@ RSpec.describe Account, type: :model do
           account.valid?
           expect(account.errors[:family_name]).to include('を入力してください')
         end
+        it 'is invalid without hurigana_first' do
+          account = build(:account, hurigana_first: nil)
+          account.valid?
+          expect(account.errors[:hurigana_first]).to include('を入力してください')
+        end
+        it 'is invalid without hurigana_family' do
+          account = build(:account, hurigana_family: nil)
+          account.valid?
+          expect(account.errors[:hurigana_family]).to include('を入力してください')
+        end
       end
     end
   end
