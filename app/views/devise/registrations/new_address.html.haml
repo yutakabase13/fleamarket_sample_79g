@@ -31,8 +31,8 @@
                 送付先氏名(全角)
               %span.Form_info_require
                 必須
-            = f.text_field :shipping_hurigana_first, class: "Form_info_index-two", placeholder: "例）スズキ"
-            = f.text_field :shipping_hurigana_family, class: "Form_info_index-two", placeholder: "例）タロウ"
+            = f.text_field :shipping_hurigana_first, class: "Form_info_index-two", placeholder: "例）すずき"
+            = f.text_field :shipping_hurigana_family, class: "Form_info_index-two", placeholder: "例）たろう"
             %ul.has_error_test
               %li.has_error
                 = @address.errors.full_messages_for(:shipping_hurigana_first).first
