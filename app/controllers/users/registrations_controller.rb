@@ -22,6 +22,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
+  def create_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(address_params)
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+    @user.build_address(@address.attributes)
+    session["address"] = @address.attributes
+    @account = @user.build_account
+    render :new_account
+  end
+
+  def create_account
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(session["address"])
+    @account = Account.new(account_params)
+    unless @account.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_account and return
+    end
+    @user.build_address(@address.attributes)
+    @user.build_account(@account.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    session["address"].clear
+    sign_in(:user, @user)
+  end
+
   # GET /resource/edit
   # def edit
   #   super
@@ -49,7 +78,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def sign_up_params
-    params.require(:user).permit(:nickname, :emmail, :password, :password_configration)
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
+  end
+
+  def address_params
+    params.require(:address).permit(:shipping_first_name, :shipping_family_name, :shipping_hurigana_first, :shipping_hurigana_family, :zipcode, :prefecture, :city, :address, :others, :phone_number)
+  end
+
+  def account_params
+    params.require(:account).permit(:first_name, :family_name, :hurigana_first, :hurigana_family, :birthday)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
