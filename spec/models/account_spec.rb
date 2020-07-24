@@ -35,6 +35,18 @@ RSpec.describe Account, type: :model do
           expect(account.errors[:birthday]).to include('を入力してください')
         end
       end
+      context 'with invalid input letter type' do
+        it 'is invalid with half letter space at first_name' do
+          account = build(:account, first_name: 'aa')
+          account.valid?
+          expect(account.errors[:first_name]).to include('は全角で入力してください')
+        end
+        it 'is invalid with half letter space at family_name' do
+          account = build(:account, family_name: 'aa')
+          account.valid?
+          expect(account.errors[:family_name]).to include('は全角で入力してください')
+        end
+      end
     end
   end
 end
