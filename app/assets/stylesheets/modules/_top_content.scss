@@ -1,0 +1,201 @@
+$cturquoise: turquoise;
+$cblack: black;
+$cwhite: white;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.Header {
+  width: 100%;
+  height: 105px;
+  &__logo-inner {
+    width: 143px;
+    height: 44px;
+    margin-right: 30px;
+  }
+  &__logo-search {
+    display: flex;
+    padding: 18px 190px 10px;
+  }
+  .Search {
+    width: 100%;
+    &__box {
+      display: flex;
+      margin-top: 4px;
+    }
+    &__field {
+      width: 100%;
+      height: 36px;
+      padding-left: 5px;
+    }
+    &__icon {
+      padding: 9px;
+      background-color: $cturquoise;
+      color: $cwhite;
+      font-size: 18px;
+    }
+  }
+  &__nav {
+    padding: 0 190px;
+    font-size: 13px;
+  }
+  &__items {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__category {
+    display: flex;
+    z-index: 10;
+  }
+
+  .Dropdwn {
+    &__list-top {
+      color: $cblack;
+      text-decoration: none;
+      &:nth-child(1) {
+        margin-right: 20px;
+      }
+      &:hover {
+        color: orange;
+      }
+    }
+    &__menu {
+      display: none;
+      position: absolute;
+      background-color: $cwhite;
+    }
+    &__list {
+      display: inline-block;
+      width: 200px;
+      padding: 10px;
+      text-decoration: none;
+      color: $cblack;
+      border-bottom: 1px solid rgba(1, 1, 0, 0.2);
+      &:hover {
+        color: orange;
+      }
+    }
+  }
+
+  &__user-log {
+    display: flex;
+  }
+  &__list-right {
+    text-decoration: none;
+    color: $cblack;
+    &:nth-child(1) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.Main {
+  position: relative;
+  &__img {
+    margin-top: 5px;
+  }
+  &__box {
+    @include visual();
+  }
+  &__head {
+    font-size: 59px;
+  }
+  &__subtitle {
+    margin: 30px 0 20px;
+    letter-spacing: 2px;
+  }
+  &__download {
+    @include download();
+  }
+  &__apple {
+    margin-right: 10px;
+    width: 200px;
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+  &__google {
+    width: 200px;
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}
+
+.Middle {
+  padding: 50px;
+  &__title {
+    @include stitle();
+    &::after {
+      content: "";
+      display: block;
+      border: 2px solid $cturquoise;
+      width: 70px;
+      margin: 10px auto 0;
+    }
+  }
+  &__inner {
+    @include container();
+  }
+  &__card {
+    position: relative;
+    margin: 0 30px;
+  }
+  &__num {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $cturquoise;
+    padding: 13px 20px;
+    color: $cwhite;
+    font-size: 20px;
+  }
+  &__box {
+    width: 300px;
+    text-align: center;
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  &__span {
+    color: $cturquoise;
+    margin: 0 10px;
+  }
+}
+
+.Section {
+  position: relative;
+  &__box {
+    @include visual($top: 150px, $left: 160px);
+    line-height: 35px;
+  }
+  &__head {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  &__subtitle {
+    margin-top: 30px;
+    letter-spacing: 4px;
+  }
+  &__download {
+    @include download($top: 350px, $left: 160px);
+  }
+  &__apple {
+    margin-right: 10px;
+    width: 200px;
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+  &__google {
+    width: 200px;
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}
