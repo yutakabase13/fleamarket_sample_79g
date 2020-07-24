@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   end
   root "items#index"
   resources :items, only: [:index]
-  get 'home', to: 'home#new'
+  resources :homes, only: [:new]
 end
