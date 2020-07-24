@@ -1,0 +1,28 @@
+.AccountPage
+  .AccountPage__header
+    .AccountPage__header__box
+      = image_tag '/assets/images/logo.png', alt: 'furimaのロゴ', height: '100', width: '300'
+  .login
+    .login__notitle
+      アカウントをお持ちでない方はこちら
+    .login__nobtn
+      = link_to '/users/sign_up', class:"Form__submitBtn" do
+        = "新規会員登録"
+  .Main
+    .Main__title
+      ログイン
+    .Main__form
+      %form.Form-contents
+        .Form-contents__email
+          = f.label :email
+            = f.email_field :email, autofocus: true, autocomplete: "メールアドレス"
+        .Form-contents__password
+          = f.label :password
+            %i (英数字7文字以上)
+            = f.password_field :password, autofocus: true, autocomplete: "パスワード"
+          -if devise_mapping.rememberable?
+     
+        = link_to 'homes', class:"Form-contents__submitBtn" do
+          = "ログイン"
+  .single__footer
+
