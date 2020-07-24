@@ -11,26 +11,31 @@
   &__header {
     font-size: 20px;
     font-weight: bold;
+    &__box{
+      padding: 40px;
+      text-align: center;;
+    }
   }  
 }
 
-.header__box{
-  padding: 40px;
-  text-align: center;;
-}
 
-.login__no{
+.login{
   background-color: #fff;
   width: 450px;
   justify-content: center;
   height: 150px;
   margin: 0 auto;
   margin-bottom: 2px;
-}
-
-.AccountPage__nobtn {
-  width: 325px;
-  margin-left: 60px;
+  &__nobtn {
+    width: 325px;
+    margin-left: 60px;
+  }
+  &__notitle{
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    
+  }
 }
 
 .Form__submitBtn{
@@ -45,25 +50,19 @@
   line-height: 45px;
 }
 
-.login__notitle{
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  
-}
 
-.AccountPage__main{
+.Main{
   width: 450px;
   justify-content: center;
   height: 400px;
   margin: 0 auto;
   background-color: #fff;
-}
-.AccountPage__title {
-  font-size: 20px;
-  font-weight: 200;
-  padding-top: 30px;
-  text-align: center;
+  &__title {
+    font-size: 20px;
+    font-weight: 200;
+    padding-top: 30px;
+    text-align: center;
+  }
 }
 .Form-contents{
   width: 325px;

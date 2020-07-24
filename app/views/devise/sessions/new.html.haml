@@ -1,17 +1,17 @@
 .AccountPage
   .AccountPage__header
-    .header__box
+    .AccountPage__header__box
       = image_tag '/assets/images/logo.png', alt: 'furimaのロゴ', height: '100', width: '300'
-  .login__no
+  .login
     .login__notitle
       アカウントをお持ちでない方はこちら
-    .AccountPage__nobtn
+    .login__nobtn
       = link_to '/users/sign_up', class:"Form__submitBtn" do
         = "新規会員登録"
-  .AccountPage__main
-    .AccountPage__title
+  .Main
+    .Main__title
       ログイン
-    .AccountPage__form
+    .Main__form
       %form.Form-contents
         .Form-contents__email
           = f.label :email
