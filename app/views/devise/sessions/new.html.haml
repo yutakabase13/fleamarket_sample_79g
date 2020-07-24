@@ -6,23 +6,19 @@
     .login__notitle
       アカウントをお持ちでない方はこちら
     .login__nobtn
-      = link_to '/users/sign_up', class:"Form__submitBtn" do
-        = "新規会員登録"
+      = link_to "新規会員登録", '/users/sign_up', class:"Form__submitBtn"
   .Main
     .Main__title
       ログイン
     .Main__form
-      %form.Form-contents
-        .Form-contents__email
-          = f.label :email
-            = f.email_field :email, autofocus: true, autocomplete: "メールアドレス"
-        .Form-contents__password
-          = f.label :password
-            %i (英数字7文字以上)
-            = f.password_field :password, autofocus: true, autocomplete: "パスワード"
-          -if devise_mapping.rememberable?
-     
-        = link_to 'homes', class:"Form-contents__submitBtn" do
-          = "ログイン"
+      - if alert
+        #error_explanation
+          .error-box__message= alert
+      = form_with model: @user, url: user_session_path, local: true do |f|
+        .Form-contents
+          .Form-contents__email
+            = f.email_field :email, autofocus: true, placeholder: "メールアドレス"
+          .Form-contents__password
+            = f.password_field :password, placeholder: "パスワード"
+          = f.submit "ログイン", class: "Form-contents__submitBtn"
   .single__footer
-
