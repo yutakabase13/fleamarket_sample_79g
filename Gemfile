@@ -65,8 +65,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'haml-rails', ">= 1.0", '<= 2.0.1'
+gem "font-awesome-sass"
 gem 'rails-i18n'
-gem 'font-awesome-sass'
 
 group :production do
   gem 'unicorn'
