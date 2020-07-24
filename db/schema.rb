@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2020_07_21_103945) do
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "shipping_first_name", null: false
     t.string "shipping_family_name", null: false
+    t.string "shipping_hurigana_first", null: false
+    t.string "shipping_hurigana_family", null: false
     t.string "zipcode", null: false
     t.string "prefecture", null: false
     t.string "city", null: false
