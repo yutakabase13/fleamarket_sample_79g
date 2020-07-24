@@ -1,7 +1,7 @@
 .Single
   .Single_header
     %h1.Single_header_icon
-      =link_to image_tag("/assets/images/logo.png",alt:"flema",class:"icon_img"),"/"
+      = link_to image_tag("/assets/images/logo.png",alt:"flema",class:"icon_img"),"/"
     %nav.Single_header_singup_bar
       %ol.clearfix
         %li.active
@@ -23,9 +23,9 @@
             = f.text_field :shipping_family_name, class: "Form_info_index-two", placeholder: "例）太郎"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:shipping_first_name).first
+                = @address.errors.full_messages_for(:shipping_first_name).first
               %li.has_error
-                = @user.errors.full_messages_for(:shipping_family_name).first
+                = @address.errors.full_messages_for(:shipping_family_name).first
             .Form_info
               %label.Form_info_name
                 送付先氏名(全角)
@@ -35,9 +35,9 @@
             = f.text_field :shipping_hurigana_family, class: "Form_info_index-two", placeholder: "例）タロウ"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:shipping_hurigana_first).first
+                = @address.errors.full_messages_for(:shipping_hurigana_first).first
               %li.has_error
-                = @user.errors.full_messages_for(:shipping_hurigana_family).first
+                = @address.errors.full_messages_for(:shipping_hurigana_family).first
             .Form_info
               = f.label :zipcode, class: "Form_info_name"
               %span.Form_info_require
@@ -45,7 +45,7 @@
             = f.text_field :zipcode, class: "Form_info_index-two", placeholder: "(-)ハイフン無しで記入"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:zipcode).first
+                = @address.errors.full_messages_for(:zipcode).first
             .Form_info
               %label.Form_info_name
                 都道府県
@@ -54,7 +54,7 @@
             = f.text_field :prefecture, class: "Form_info_index-two", placeholder: "例) ○○県"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:prefecture).first
+                = @address.errors.full_messages_for(:prefecture).first
             .Form_info
               = f.label :city, class: "Form_info_name"
               %span.Form_info_require
@@ -62,34 +62,33 @@
             = f.text_field :city, class: "Form_info_index", placeholder: "例）○ ○市"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:city).first
+                = @address.errors.full_messages_for(:city).first
             .Form_info
               = f.label :address, class: "Form_info_name"
               %span.Form_info_require
                 必須
-            = = f.text_field :city, class: "Form_info_index", placeholder: "例）○ ○番地"
+            = f.text_field :address, class: "Form_info_index", placeholder: "例）○ ○番地"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:address).first
+                = @address.errors.full_messages_for(:address).first
             .Form_info
-              = f.label, class: "Form_info_name"
-                マンション名やビル名、その部屋番号
+              = f.label :others, class: "Form_info_name"
               %span.Form_info_require
                 任意
             = f.text_field :others, class: "Form_info_index", placeholder: "例）○ビル○番"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:others).first
+                = @address.errors.full_messages_for(:others).first
             .Form_info
-              = f.label, class: "Form_info_name"
+              = f.label :phone_number, class: "Form_info_name"
               %span.Form_info_require
                 任意
-            = f.text_field :phone_number, class: "Form_info_index", placeholder="(-)ハイフン無しで記入")/
+            = f.text_field :phone_number, class: "Form_info_index", placeholder: "(-)ハイフン無しで記入"
             %ul.has_error_test
               %li.has_error
-                = @user.errors.full_messages_for(:phone_number).first
-          .Single_main_container_warrap_content_group
-            = f.submit "次へ", class: "Single_main_container_warrap_content_group_submit-btn"
+                = @address.errors.full_messages_for(:phone_number).first
+            .Single_main_container_warrap_content_group
+              = f.submit "次へ", class: "Single_main_container_warrap_content_group_submit-btn"
   .Single_footer
     =link_to image_tag("/assets/images/logo-white.png",alt:"flema",class:"icon_imgRight"),"/"
     %p.Single_footer_logo-text
