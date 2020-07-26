@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "items#index"
-  resources :items, only: [:index]
+  resources :items, only: [:index] do
+    collection do
+      get :confirmation
+    end
+  end
   resources :homes, only: [:new]
 end
