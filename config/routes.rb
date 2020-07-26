@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items, only: [:index]
   resources :users, only: [:show, :edit, :update]
+  resources :items, only: [:index] do
+    collection do
+      get :confirmation
+    end
+  end
   resources :homes, only: [:new]
-  upstream/revert-7-login_view2
 end
