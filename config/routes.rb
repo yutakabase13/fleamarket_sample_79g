@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :items, only: [:index]
   resources :users, only: [:show, :edit, :update]
   resources :homes, only: [:new]
+  upstream/revert-7-login_view2
 end
