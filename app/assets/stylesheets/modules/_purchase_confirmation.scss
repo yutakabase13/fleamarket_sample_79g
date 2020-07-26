@@ -5,7 +5,7 @@ $cwhite: white;
 .ButtonBox{
   height: 50px;
 }
-.tk_btn{
+@mixin btn{
   width: 100%;
   padding: 10px;
   background-color: $cturquoise;
@@ -80,6 +80,7 @@ $cwhite: white;
     }
   }
   &__btn{
+    @include btn;
     &:hover{
       opacity: 0.8;
     }
