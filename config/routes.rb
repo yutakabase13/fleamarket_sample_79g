@@ -1,4 +1,4 @@
-Rails.application.routes.draw do 
+Rails.application.routes.draw do
   devise_for :users, controllers: {seessions: 'users/sessions', registrations: 'users/registrations'}
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "items#index"
   resources :items, only: [:index]
+  resources :users, only: [:show, :edit, :update]
 end
