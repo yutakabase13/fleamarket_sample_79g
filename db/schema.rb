@@ -12,18 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_07_27_042729) do
 
-  create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "family_name", null: false
-    t.string "hurigana_first", null: false
-    t.string "hurigana_family", null: false
-    t.date "birthday", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_accounts_on_user_id"
-  end
-
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "shipping_first_name", null: false
     t.string "shipping_family_name", null: false
@@ -50,10 +38,8 @@ ActiveRecord::Schema.define(version: 2020_07_27_042729) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,7 +88,6 @@ ActiveRecord::Schema.define(version: 2020_07_27_042729) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "accounts", "users"
   add_foreign_key "addresses", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
