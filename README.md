@@ -56,11 +56,12 @@ belongs_to :user
 
 
 ## Credits
-| Column  | Type       | Options          |
-| ------- | ---------- | ---------------- |
-| id      | integer    |                  |
-| user_id | references | foreign_key:true |
-| card_id | string     |                  |
+| Column      | Type       | Options          |
+| ----------- | ---------- | ---------------- |
+| id          | integer    |                  |
+| user_id     | references | foreign_key:true |
+| customer_id | string     |                  |
+| card_id     | string     |                  |
 
 ### asscociation
 belongs_to :user
