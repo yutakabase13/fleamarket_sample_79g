@@ -33,6 +33,12 @@ RSpec.describe User, type: :model do
           expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
         end
 
+        it 'is invalid with password more than 6 words' do
+          user = build(:user, password: 'aaaaaa')
+          user.valid?
+          expect(user.errors[:password]).to include("は7文字以上で入力してください")
+        end
+
         it 'is invalid without first_name' do
           user = build(:user, first_name: nil)
           user.valid?
@@ -89,3 +95,4 @@ RSpec.describe User, type: :model do
     end
   end
 end
+require 'rails_helper'
