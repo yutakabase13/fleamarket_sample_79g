@@ -1,7 +1,7 @@
 .wrapper
   .Top-Content
     .Top-Content__logo
-      = image_tag 'logo.png', alt: 'サイトロゴの画像', class: "TopContent__logo-image"
+      = image_tag 'logo.png', alt: 'サイトロゴの画像', class: "Top-Content__logo-image"
   .Confirmation-Content
     .Confirmation-Content__title
       %p= "購入内容の確認"
@@ -32,7 +32,7 @@
             %li.CardInfo__expired-day
               = "有効期限 12 / 21"
             %li.CardInfo__company
-              = image_tag 'visa.png'
+              = image_tag 'visa.png', class: "CardInfo__image"
           
         .Confirmation-Content__rightfield
           = link_to "カードを変更する", '#'
