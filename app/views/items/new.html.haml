@@ -25,7 +25,9 @@
   %br
   = f.label :images
   = f.fields_for :images do |i|
-    = i.file_field :src
+    .js-file_group{data: {index: image.index}}
+      = i.file_field :src, class: 'js-file'
+      %span.js-remove= "削除"
 
   = f.submit '登録'
   
