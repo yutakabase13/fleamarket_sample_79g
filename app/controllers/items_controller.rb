@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_params, except: [:index, :new, :create]
+  before_action :set_params, except: [:index, :new, :create, :sell]
   def index
   end
 
