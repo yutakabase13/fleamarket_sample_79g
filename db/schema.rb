@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 2020_07_27_042729) do
     t.text "description", null: false
     t.integer "price", null: false
     t.string "item_status", null: false
-    t.integer "shipping_fee", null: false
+    t.string "shipping_fee", null: false
     t.string "owner_area", null: false
-    t.integer "shipping_date", null: false
+    t.string "shipping_date", null: false
     t.integer "seller_id"
     t.integer "buyer_id"
     t.bigint "brand_id"
