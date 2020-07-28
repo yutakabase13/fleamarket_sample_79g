@@ -5,4 +5,7 @@ class ItemsController < ApplicationController
   def sell
   end
   
+
+  def confirmation
+  end
 end
