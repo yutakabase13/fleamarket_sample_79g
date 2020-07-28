@@ -12,11 +12,11 @@
   = @item.errors.full_messages_for(:price).first
   %br
   = f.label :shipping_fee
-  = f.text_field :shipping_fee
+  = f.select :shipping_fee, options_for_select(Item.shipping_fees)
   = @item.errors.full_messages_for(:shipping_fee).first
   %br
   = f.label :owner_area
-  = f.text_field :owner_area, {value: "#{current_user.address.prefecture}", disabled: true}
+  = f.text_field :owner_area, {value: "#{current_user.address.prefecture}"}
   = @item.errors.full_messages_for(:owner_area).first
   %br
   = f.label :shipping_date
@@ -45,7 +45,7 @@
         .js-file_group{data: {index: @item.images.count}}
           = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
           .js-remove= "削除"
-  = @item.errors.full_messages_for(:email).first
+  = @item.errors.full_messages_for(:images).first
 
   = f.submit '登録'
   
