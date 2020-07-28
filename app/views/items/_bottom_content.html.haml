@@ -160,4 +160,4 @@
     .middle-main__purchaseBtn__purchase-text
       出品する
       .middle-main__purchaseBtn__purchase-text__purchase-icon
-    = image_tag("/assets/icon_camera.svg", size: "54x54", alt: "furima", class: "purchase-icon")
+    = link_to image_tag("/assets/icon_camera.svg", size: "54x54", alt: "furima", class: "purchase-icon"), new_item_path
