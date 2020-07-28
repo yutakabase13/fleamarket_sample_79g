@@ -1,27 +1,31 @@
 = form_with model: @item, method: :post, local: true do |f|
   = f.label :name
-  = f.text_field :name, {}
+  = f.text_field :name
+  = @item.errors.full_messages_for(:name).first
   %br
   = f.label :description
-  = f.text_field :description, {}
+  = f.text_field :description
+  = @item.errors.full_messages_for(:description).first
   %br
   = f.label :price
-  = f.text_field :price, {}
-  %br
-  = f.label :item_status
-  = f.text_field :item_status, {}
+  = f.text_field :price
+  = @item.errors.full_messages_for(:price).first
   %br
   = f.label :shipping_fee
-  = f.text_field :shipping_fee, {}
+  = f.text_field :shipping_fee
+  = @item.errors.full_messages_for(:shipping_fee).first
   %br
   = f.label :owner_area
   = f.text_field :owner_area, {value: "#{current_user.address.prefecture}", disabled: true}
+  = @item.errors.full_messages_for(:owner_area).first
   %br
   = f.label :shipping_date
-  = f.text_field :shipping_date, {}
+  = f.select :shipping_date, options_for_select(Item.shippings)
+  = @item.errors.full_messages_for(:shipping_date).first
   %br
   = f.label :item_status
-  = f.text_field :item_status, {}
+  = f.select :item_status, options_for_select(Item.statuses)
+  = @item.errors.full_messages_for(:item_status).first
   %br
   = f.hidden_field :seller_id, {value: current_user.id}
   %br
@@ -41,6 +45,7 @@
         .js-file_group{data: {index: @item.images.count}}
           = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
           .js-remove= "削除"
+  = @item.errors.full_messages_for(:email).first
 
   = f.submit '登録'
   
