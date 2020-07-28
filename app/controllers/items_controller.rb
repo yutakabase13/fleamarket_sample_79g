@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_params, except: [:index, :new, :create]
   def index
   end
 
@@ -14,11 +15,16 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
 
   def confirmation
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :item_status, :shipping_fee, :owner_area, :shipping_date, :seller_id, :buyer_id, :brand, images_attributes: [:image])
+    params.require(:item).permit(:name, :price, :description, :item_status, :shipping_fee, :owner_area, :shipping_date, :seller_id, images_attributes: [:image, :_destroy, :id])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
