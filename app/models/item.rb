@@ -3,6 +3,7 @@ class Item < ApplicationRecord
     validates :name
     validates :description
     validates :price
+    validates :shipping_fee
     validates :item_status
     validates :owner_area
     validates :shipping_date
@@ -17,22 +18,22 @@ class Item < ApplicationRecord
 
   #選択肢作成
   enum status: {
-    "新品": 0,
-    "未使用に近い": 1,
-    "目立った傷等はない": 2,
-    "軽い傷がある": 3,
-    "汚れが多い": 4,
-    "かなり汚れている": 5,
+    "新品": "新品",
+    "未使用に近い": "未使用に近い",
+    "目立った傷等はない": "目立った傷等はない",
+    "軽い傷がある": "軽い傷がある",
+    "汚れが多い": "汚れが多い",
+    "かなり汚れている": "かなり汚れている",
   }
   enum shipping: {
-    "1~2日": 0,
-    "2~3日": 1,
-    "3~4日": 2,
-    "4~5日": 3,
-    "一週間以上": 4,
+    "1~2日": "1~2日",
+    "2~3日": "2~3日",
+    "3~4日": "3~4日",
+    "4~5日": "4~5日",
+    "一週間以上": "一週間以上",
   }
   enum shipping_fee: {
-    "送料込み(出品者負担)": 0,
-    "着払い(購入者負担)": 1
+    "送料込み(出品者負担)": "送料込み(出品者負担)",
+    "着払い(購入者負担)": "着払い(購入者負担)"
   }
 end
