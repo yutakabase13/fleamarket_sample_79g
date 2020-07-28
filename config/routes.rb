@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :items, only: [:index]
   get 'items/sell'
   resources :users, only: [:show, :edit, :update]
-  resources :items, only: [:index] do
-    collection do
+  resources :items, only: [:index, :new, :create, :edit, :update] do
+    collection do #最終的にmemberに切り替える
       get :confirmation
     end
   end
