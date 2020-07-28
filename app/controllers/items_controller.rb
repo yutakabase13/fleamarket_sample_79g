@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_params, except: [:index, :new, :create]
+  before_action :set_params, except: [:index, :new, :create, :show]
   def index
   end
 
@@ -18,6 +18,9 @@ class ItemsController < ApplicationController
   end
 
   def confirmation
+  end
+
+  def show
   end
 
   def item_params
