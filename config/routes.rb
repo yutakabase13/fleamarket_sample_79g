@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items, only: [:index]
   resources :users, only: [:show, :edit, :update]
-  resources :items, only: [:index, :new, :create, :edit, :update, :show] do
+  resources :items, only: [:index, :new, :create, :edit, :update,:show] do
     collection do #最終的にmemberに切り替える
       get :confirmation
     end
