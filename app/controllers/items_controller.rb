@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :set_params, except: [:index, :new, :create, :show]
+  before_action :set_params, except: [:index, :new, :create, :show, :sell]
   def index
   end
 
+  def sell
+  end
+  
   def new
     @item = Item.new
     @item.images.new

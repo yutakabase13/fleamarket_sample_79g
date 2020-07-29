@@ -75,6 +75,8 @@ end
 gem "jquery-rails"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'ancestry'
+gem 'active_hash'
 
 gem 'ancestry'
 gem 'carrierwave'
