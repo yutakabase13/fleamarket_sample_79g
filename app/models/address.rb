@@ -8,8 +8,6 @@ class Address < ApplicationRecord
     validates :shipping_hurigana_family
     validates :shipping_first_name
     validates :shipping_family_name
-    extend ActiveHash::Associations::ActiveRecordExtensions
-    belongs_to_active_hash :prefecture
   end
 
   with_options format: {with: /\A\d{7}\z/, message: "は-(ハイフン)無しで入力してください"} do
@@ -29,5 +27,7 @@ class Address < ApplicationRecord
   validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "は-(ハイフン)無しで入力してください"}, allow_blank: true
 
   belongs_to :user, optional: true
-end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end

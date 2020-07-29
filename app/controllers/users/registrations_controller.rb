@@ -36,9 +36,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     redirect_to root_path
   end
 
-  def create_account
-  end
-
   # GET /resource/edit
   # def edit
   #   super
