@@ -16,7 +16,7 @@
   = @item.errors.full_messages_for(:shipping_fee).first
   %br
   = f.label :owner_area
-  = f.text_field :owner_area, {value: "#{current_user.address.prefecture}"}
+  = f.text_field :owner_area, {value: "#{current_user.address.prefecture.name}"}
   = @item.errors.full_messages_for(:owner_area).first
   %br
   = f.label :shipping_date

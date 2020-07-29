@@ -2,7 +2,7 @@ class Address < ApplicationRecord
   with_options presence: true do
     validates :address
     validates :city
-    validates :prefecture 
+    validates :prefecture_id 
     validates :zipcode
     validates :shipping_hurigana_first
     validates :shipping_hurigana_family
