@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_042729) do
+ActiveRecord::Schema.define(version: 2020_07_28_084332) do
+
+  create_table "accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.string "hurigana_first", null: false
+    t.string "hurigana_family", null: false
+    t.date "birthday", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "shipping_first_name", null: false
@@ -62,7 +74,6 @@ ActiveRecord::Schema.define(version: 2020_07_27_042729) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "price", null: false
     t.string "item_status", null: false
     t.string "shipping_fee", null: false
     t.string "owner_area", null: false
@@ -77,6 +88,13 @@ ActiveRecord::Schema.define(version: 2020_07_27_042729) do
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
+  create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -86,15 +104,11 @@ ActiveRecord::Schema.define(version: 2020_07_27_042729) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname", null: false
-    t.string "first_name", null: false
-    t.string "family_name", null: false
-    t.string "hurigana_first", null: false
-    t.string "hurigana_family", null: false
-    t.date "birthday", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accounts", "users"
   add_foreign_key "addresses", "users"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
