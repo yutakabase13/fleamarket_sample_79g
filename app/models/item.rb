@@ -9,9 +9,7 @@ class Item < ApplicationRecord
     validates :shipping_id
   end
 
-  validates :price, format: {with: /\A[a-zA-Z]+\z/, message: "は半角数字のみ入力してください"}, allow_blank: true
-  validates :price, format: {with: /\A[０-９]+\z/, message: "は半角数字のみ入力してください"}, allow_blank: true
-  validates :price, format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/, message: "は半角数字のみ入力してください"}, allow_blank: true
+  validates :price, numericality:{only_integer: true,  message: "は半角数字のみ入力してください"}, allow_blank: true
 
   #image紐付け先のバリデーション
   validates_associated :images

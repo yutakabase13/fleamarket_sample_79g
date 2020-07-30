@@ -3,10 +3,10 @@ FactoryBot.define do
     name {"商品"}
     description {Faker::Lorem.sentence}
     price {Faker::Number.number(digits: 7)}
-    item_status {"新品"}
+    status_id {"1"}
     owner_area {"東京都"}
-    shipping_date {"1~2日"}
-    shipping_fee {"送料込み(出品者負担)"}
+    shipping_id {"1"}
+    fee_id {"1"}
     seller_id {"1"}
     buyer_id {"2"}
     after(:build) do |item|

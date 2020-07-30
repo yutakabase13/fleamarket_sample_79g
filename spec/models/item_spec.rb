@@ -24,25 +24,42 @@ RSpec.describe Item, type: :model do
           item.valid?
           expect(item.errors[:price]).to include('を入力してください')
         end
-        it 'is invalid without shipping_fee' do
-          item = build(:item, shipping_fee: nil)
+        it 'is invalid without fee_id' do
+          item = build(:item, fee_id: nil)
           item.valid?
-          expect(item.errors[:shipping_fee]).to include('を入力してください')
+          expect(item.errors[:fee_id]).to include('を入力してください')
         end
-        it 'is invalid without item_status' do
-          item = build(:item, item_status: nil)
+        it 'is invalid without status_id' do
+          item = build(:item, status_id: nil)
           item.valid?
-          expect(item.errors[:item_status]).to include('を入力してください')
+          expect(item.errors[:status_id]).to include('を入力してください')
         end
         it 'is invalid without owner_area' do
           item = build(:item, owner_area: nil)
           item.valid?
           expect(item.errors[:owner_area]).to include('を入力してください')
         end
-        it 'is invalid without shipping_date' do
-          item = build(:item, shipping_date: nil)
+        it 'is invalid without shipping_id' do
+          item = build(:item, shipping_id: nil)
           item.valid?
-          expect(item.errors[:shipping_date]).to include('を入力してください')
+          expect(item.errors[:shipping_id]).to include('を入力してください')
+        end
+      end
+      context 'with invalid form data' do
+        it 'is invalid with japanese letter in price column' do
+          item = build(:item, price: "ああ")
+          item.valid?
+          expect(item.errors[:price]).to include('は半角数字のみ入力してください')
+        end
+        it 'is invalid with one space digit letter in price column' do
+          item = build(:item, price: "１２３")
+          item.valid?
+          expect(item.errors[:price]).to include('は半角数字のみ入力してください')
+        end
+        it 'is invalid with alphabet' do
+          item = build(:item, price: "abc")
+          item.valid?
+          expect(item.errors[:price]).to include('は半角数字のみ入力してください')
         end
       end
     end
