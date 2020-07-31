@@ -11,21 +11,21 @@
   = f.text_field :price
   = @item.errors.full_messages_for(:price).first
   %br
-  = f.label :shipping_fee
-  = f.select :shipping_fee, options_for_select(Item.shipping_fees)
-  = @item.errors.full_messages_for(:shipping_fee).first
+  = f.label :fee_id
+  = f.collection_select(:fee_id, Fee.all, :id, :name, {include_blank: "---"})
+  = @item.errors.full_messages_for(:fee_id).first
   %br
   = f.label :owner_area
   = f.text_field :owner_area, {value: "#{current_user.address.prefecture.name}"}
   = @item.errors.full_messages_for(:owner_area).first
   %br
-  = f.label :shipping_date
-  = f.select :shipping_date, options_for_select(Item.shippings)
-  = @item.errors.full_messages_for(:shipping_date).first
+  = f.label :shipping_id
+  = f.collection_select(:shipping_id, Shipping.all, :id, :name, {include_blank: "---"})
+  = @item.errors.full_messages_for(:shipping_id).first
   %br
-  = f.label :item_status
-  = f.select :item_status, options_for_select(Item.statuses)
-  = @item.errors.full_messages_for(:item_status).first
+  = f.label :status_id
+  = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "---"})
+  = @item.errors.full_messages_for(:status_id).first
   %br
   = f.hidden_field :seller_id, {value: current_user.id}
   %br
