@@ -2,7 +2,7 @@ class Address < ApplicationRecord
   with_options presence: true do
     validates :address
     validates :city
-    validates :prefecture 
+    validates :prefecture_id 
     validates :zipcode
     validates :shipping_hurigana_first
     validates :shipping_hurigana_family
@@ -27,4 +27,7 @@ class Address < ApplicationRecord
   validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "は-(ハイフン)無しで入力してください"}, allow_blank: true
 
   belongs_to :user, optional: true
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
