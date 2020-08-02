@@ -2,7 +2,7 @@
   .Header__inner
     .Header__logo-search
       .Header__logo
-        = link_to image_tag("/images/logo.png", alt: "furima", class: "Header__logo-inner"), "#"
+        = link_to image_tag("logo.png", alt: "furima", class: "Header__logo-inner"), "#"
       .Search
         = form_with(url: "#", method: :get, class: "Header__search-inner") do |f|
           .Search__box
@@ -72,8 +72,8 @@
       %p.Main__subtitle FURIMAはだれでもかんたんに出品・購入できる
       %p フリマアプリです
     .Main__download
-      = link_to image_tag("/images/applestore.svg", alt: "apple", class: "Main__apple"), "#"
-      = link_to image_tag("/images/googleplay.svg", alt: "google", class: "Main__google"), "#"
+      = link_to image_tag("applestore.svg", alt: "apple", class: "Main__apple"), "#"
+      = link_to image_tag("googleplay.svg", alt: "google", class: "Main__google"), "#"
 
 .Middle
   %h1.Middle__title FURIMAが選ばれる3つの理由
