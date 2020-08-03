@@ -16,9 +16,6 @@ class Item < ApplicationRecord
   validates :images, presence: { message: 'は１枚以上添付してください'}
   #ここまでimageのバリデーション
 
-  #userテーブルの「id」とitemsテーブルの「buyer_id」「saler_id」の紐付け
-  belongs_to :saler, class_name: "User"
-  belongs_to :buyer, class_name: "User"
 
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
