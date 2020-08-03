@@ -1,4 +1,6 @@
 class CreditController < ApplicationController
+  before_action :set_card
+
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     if params['payjpToken'].blank?
@@ -70,6 +72,6 @@ class CreditController < ApplicationController
   private
 
   def set_card
-    @card = current_user.credit_card
+    @card = Card.find(params[:create_id])
   end
 end
