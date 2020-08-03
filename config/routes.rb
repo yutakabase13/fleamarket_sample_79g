@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :items do
     collection do #最終的にmemberに切り替える
       get :confirmation
+
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   resources :homes, only: [:new]
