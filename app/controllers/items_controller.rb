@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.delete
+    @item.destroy
   end
 
   def item_params
