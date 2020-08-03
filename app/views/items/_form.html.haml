@@ -148,13 +148,9 @@
                         必須
                     .Sell_warrap_index_main_center_content_box_body_contents
                       .Sell_warrap_index_main_center_content_box_body_contents_filed
-                        %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
-                          %option{value: "選択してください"} 選択してください
-                          - Prefecture.all.each do |pref|
-                            %option{label: pref.name, value: pref.id}
-                              = pref.name
-                              = @item.errors.full_messages_for(:owner_area).first
+                        = f.collection_select :owner_area, Prefecture.all, :id, :name, {selected: "#{current_user.address.prefecture.id}"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
                     .Sell_warrap_index_main_center_content_box_body_photos_popup
+                      = @item.errors.full_messages_for(:owner_area).first
 
               .Sell_warrap_index_main_center_content_box
                 .Sell_warrap_index_main_center_content_box_body
@@ -167,7 +163,7 @@
                     .Sell_warrap_index_main_center_content_box_body_contents
                       .Sell_warrap_index_main_center_content_box_body_contents_filed
                         = f.collection_select :shipping_id, Shipping.all, :id, :name, {include_blank: "---"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
-                        = @item.errors.full_messages_for(:shipping_date).first
+                        = @item.errors.full_messages_for(:shipping_id).first
                     .Sell_warrap_index_main_center_content_box_body_photos_popup
 
             %hr.Sell_warrap_index_main_center_border
