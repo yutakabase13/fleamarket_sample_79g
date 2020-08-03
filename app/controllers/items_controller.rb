@@ -10,14 +10,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @category_parent_array = ["選択してください"]
+    @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.category_name
+      @category_parent_array << parent
     end
   end
 
   def get_category_children
-    @category_children = Category.find_by(category_name: "#{params[:parent_name]}").children
+    @category_children = Category.find_by(id: "#{params[:parent_id]}").children
   end
 
   def get_category_grandchildren
@@ -30,6 +30,10 @@ class ItemsController < ApplicationController
       redirect_to items_path(@item)
     else
       @item.images.new
+      @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent
+      end
       render :new
     end
   end
@@ -45,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :status_id, :fee_id, :owner_area, :shipping_id, :seller_id, images_attributes: [:image, :_destroy, :id])
+    params.require(:item).permit(:name, :price, :description, :status_id, :fee_id, :owner_area, :shipping_id, :seller_id, :category_id, images_attributes: [:image, :_destroy, :id])
   end
 
   def set_item

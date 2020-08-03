@@ -6,7 +6,7 @@ $(document).on("turbolinks:load", function () {
     }
     function appendChidrenBox(insertHTML) {
       var childSelectHtml = "";
-      childSelectHtml = `<div class="Sell_warrap_index_main_center_content_box_body_contents">
+      childSelectHtml = `<div class="Sell_warrap_index_main_center_content_box_body_contents" id="child_wrapper">
                         <div class="Sell_warrap_index_main_center_content_box_body_contents_filed">
                           <select class="Sell_warrap_index_main_center_content_box_body_contents_filed_category" id="child_category" name="category_id">
                             <option value="---" data-category="---">---</option>
@@ -20,7 +20,7 @@ $(document).on("turbolinks:load", function () {
     }
     function appendGrandchidrenBox(insertHTML) {
       var grandchildSelectHtml = "";
-      grandchildSelectHtml = `<div class="Sell_warrap_index_main_center_content_box_body_contents">
+      grandchildSelectHtml = `<div class="Sell_warrap_index_main_center_content_box_body_contents" id="grandchild_wrapper">
                               <div class="Sell_warrap_index_main_center_content_box_body_contents_filed">
                                 <select class="Sell_warrap_index_main_center_content_box_body_contents_filed_category" id="child_category" name="category_id">
                                   <option value="---" data-category="---">---</option>
@@ -34,16 +34,16 @@ $(document).on("turbolinks:load", function () {
     }
     $("#parent_category").on("change", function () {
       var parentCategory = document.getElementById("parent_category").value;
-      if (parentCategory != "選択してください") {
+      if (parentCategory) {
         $.ajax({
           url: "get_category_children",
           type: "GET",
-          data: { parent_name: parentCategory },
+          data: { parent_id: parentCategory },
           dataType: "json",
         })
           .done(function (children) {
-            $("#children_wrapper").remove();
-            $("#grandchildren_wrapper").remove();
+            $("#child_wrapper").remove();
+            $("#grandchild_wrapper").remove();
             var insertHTML = "";
             children.forEach(function (child) {
               insertHTML += appendOption(child);
@@ -54,8 +54,8 @@ $(document).on("turbolinks:load", function () {
             alert("カテゴリー取得に失敗しました");
           });
       } else {
-        $("#children_wrapper").remove();
-        $("#grandchildren_wrapper").remove();
+        $("#child_wrapper").remove();
+        $("#grandchild_wrapper").remove();
       }
     });
     $(".Sell_warrap_index_main_center_content_box_body_photos__categroy").on(
@@ -63,7 +63,7 @@ $(document).on("turbolinks:load", function () {
       "#child_category",
       function () {
         var childId = $("#child_category option:selected").data("category");
-        if (childId != "選択してください") {
+        if (childId != "---") {
           $.ajax({
             url: "get_category_grandchildren",
             type: "GET",
@@ -72,7 +72,7 @@ $(document).on("turbolinks:load", function () {
           })
             .done(function (grandchildren) {
               if (grandchildren.length != 0) {
-                $("#grandchildren_wrapper").remove();
+                $("#grandchild_wrapper").remove();
                 var insertHTML = "";
                 grandchildren.forEach(function (grandchild) {
                   insertHTML += appendOption(grandchild);
@@ -84,7 +84,7 @@ $(document).on("turbolinks:load", function () {
               alert("カテゴリー取得に失敗しました");
             });
         } else {
-          $("#grandchildren_wrapper").remove();
+          $("#grandchild_wrapper").remove();
         }
       }
     );
