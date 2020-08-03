@@ -40,6 +40,9 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def destroy
+    @item.destroy
+  end
 
   def item_params
     params.require(:item).permit(:name, :price, :description, :status_id, :fee_id, :owner_area, :shipping_id, :seller_id, images_attributes: [:image, :_destroy, :id])
