@@ -1,5 +1,5 @@
 class CreditController < ApplicationController
-  before_action :set_card
+  before_action :set_card, only:[:show, :delete]
 
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
@@ -25,7 +25,6 @@ class CreditController < ApplicationController
   end
   
   def show
-    card = current_user.credit_card
     if card.blank?
       redirect_to action: "new"
     else
@@ -59,7 +58,6 @@ class CreditController < ApplicationController
   end
       
   def delete
-    card = current_user.credit_card
     if card.blank?
       redirect_to action: "new"
     else
@@ -72,6 +70,7 @@ class CreditController < ApplicationController
   private
 
   def set_card
-    @card = Card.find(params[:create_id])
+    root to 'credit#new'
+    resources only, set_card: [:show, :delete]
   end
 end
