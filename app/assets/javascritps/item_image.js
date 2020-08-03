@@ -20,10 +20,8 @@ $(document).on("turbolinks:load", () => {
   lastIndex = $(".js-file_group:last").data("index");
   fileIndex.splice(0, lastIndex);
   $(".hidden-destroy").hide();
-  console.log($(".js-file")[fileIndex[0] - 1]);
 
   $("#js-file_group").on("change", ".js-file", function (e) {
-    // const targetIndex = $(this).data("index");
     //下記は、hamlでdataが取れないので文字列に変えてsplitでattributesの数字を取ってあります
     const targetIndex = $(this)[0].id.split("_")[3];
 
@@ -45,7 +43,6 @@ $(document).on("turbolinks:load", () => {
   });
 
   $("#image-box").on("click", function () {
-    console.log(fileIndex);
     $(".js-file")[fileIndex[0] - 1].click();
   });
 

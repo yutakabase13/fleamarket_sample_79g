@@ -45,8 +45,9 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :price, :description, :status_id, :fee_id, :owner_area, :shipping_id, :seller_id, images_attributes: [:image, :_destroy, :id])
   end
 
-  def set_params
-    @item = Item.find(params[:id])
+  def set_item
+    # カテゴリーボックスのさいにエラーが出てしまうので一時的にコメントアウト
+    # @item = Item.find(params[:id])
   end
 
 
