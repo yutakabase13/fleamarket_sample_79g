@@ -1,216 +1,217 @@
-.Sell
-  .Sell_warrap
-    .Sell_warrap_index
-      .Sell_warrap_index_header
-        =link_to image_tag("/assets/images/logo.png",alt:"flema",class:"Sell_warrap_index_header_icon-img"),"/" 
-      .Sell_warrap_index_main
-        .Sell_warrap_index_main_center
-          .Sell_warrap_index_main_center_navi
-          .Sell_warrap_index_main_center_content
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      出品画像
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                %p.Sell_warrap_index_main_center_content_box_body_up
-                  １枚以上アップロードしてください
-                .Sell_warrap_index_main_center_content_box_body_imgs
-                  .Sell_warrap_index_main_center_content_box_body_imgs_warraps
-                    .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs
-                      .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in
-                        %label.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label
-                          %input(type="file" autocomplete="off" tabindex="-1" multiple style="display:none" class="Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label_img")/
-                          %i.fas.fa-camera
-                          %p.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label_info
-                            ドラッグアンドドロップ
-                            %br
-                              またはクリックしてファイルをアップロード
-                  .Sell_warrap_index_main_center_content_box_body_photos_popup
-                    画像がありません
-          %hr.Sell_warrap_index_main_center_border
-          .Sell_warrap_index_main_center_content
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      商品名
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                .Sell_warrap_index_main_center_content_box_body_contents
-                  .Sell_warrap_index_main_center_content_box_body_contents_filed
-                    %input.Sell_warrap_index_main_center_content_box_body_contents_filed_text(type="text" placeholder="40文字まで")/
-                .Sell_warrap_index_main_center_content_box_body_photos_popup
-                  入力してください
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      商品説明
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                .Sell_warrap_index_main_center_content_box_body_contents
-                  .Sell_warrap_index_main_center_content_box_body_contents_filed
-                    %textarea.Sell_warrap_index_main_center_content_box_body_contents_filed_area{type: "text", rows: "7", placeholder: "商品の説明（必須 1,000文字以内）\r\n（色、素材、重さ、定価、注意点など）\r\n\r\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\r\n"}
-                .Sell_warrap_index_main_center_content_box_body_info
-                  %span.Sell_warrap_index_main_center_content_box_body_info_num
-                    0/1000
-                .Sell_warrap_index_main_center_content_box_body_photos_popup
-                  入力してください
-          %hr.Sell_warrap_index_main_center_border
-          .Sell_warrap_index_main_center_content
-            %p.Sell_warrap_index_main_center_content_show
-              商品詳細
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      カテゴリー
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                .Sell_warrap_index_main_center_content_box_body_contents
-                  .Sell_warrap_index_main_center_content_box_body_contents_filed
-                    %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
-                      %option{label: "選択してください"} 選択してください
-                      %option{label: "レディース", value: 1} レディース
-                      %option{label: "メンズ", value: 2} メンズ
-                      %option{label: "べピー・キッズ", value: 3} ベビー・キッズ
-                      %option{label: "インテリア・住まい・小物", value: 4} インテリア・住まい・小物
-                      %option{label: "本・音楽・ゲーム", value: 5} 本・音楽・ゲーム
-                      %option{label: "おもちゃ・ホビー・グッズ", value: 6} おもちゃ・ホビー・グッズ
-                      %option{label: "コスメ・香水・美容", value: 7} コスメ・香水・美容
-                      %option{label: "家電・スマホ・カメラ", value: 8} 家電・スマホ・カメラ
-                      %option{label: "スポーツ・レジャー", value: 9} スポーツ・レジャー
-                      %option{label: "ハンドメイド", value: 10} ハンドメイド
-                      %option{label: "チケット", value: 11} チケット
-                      %option{label: "自動車・オートバイ", value: 12} 自動車・オートバイ
-                      %option{label: "その他", value: 13} その他
-                .Sell_warrap_index_main_center_content_box_body_photos_popup
-                  選択してください
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_any
-                      ブランド
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_any_note
-                      任意
-                .Sell_warrap_index_main_center_content_box_body_contents
-                  .Sell_warrap_index_main_center_content_box_body_contents_filed
-                    %input.Sell_warrap_index_main_center_content_box_body_contents_filed_text(type="text" placeholder="例）シャネル")/
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      商品状態
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                .Sell_warrap_index_main_center_content_box_body_contents
-                  .Sell_warrap_index_main_center_content_box_body_contents_filed
-                    %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
-                      %option{label: "選択してください"} 選択してください
-                      %option{label: "新品、未使用", value: 1} 新品、未使用
-                      %option{label: "未使用に近い", value: 2} 未使用に近い
-                      %option{label: "目立った傷や汚れなし", value: 3} 目立った傷や汚れなし
-                      %option{label: "やや傷や汚れあり", value: 4} やや傷や汚れあり
-                      %option{label: "全体的に状態が悪い", value: 5} 全体的に状態が悪い
-                .Sell_warrap_index_main_center_content_box_body_photos_popup
-                  選択してください
-          %hr.Sell_warrap_index_main_center_border
-          .Sell_warrap_index_main_center_content
-            %p.Sell_warrap_index_main_center_content_show
-              配送について
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      配送料の負担
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                  .Sell_warrap_index_main_center_content_box_body_contents
-                    .Sell_warrap_index_main_center_content_box_body_contents_filed
-                      %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
-                        %option{label: "選択してください"} 選択してください
-                        %option{label: "送料込み（出品者負担）", value: 1} 送料込み（出品者負担）
-                        %option{label: "着払い（購入者負担）", value: 2} 着払い（購入者負担）
-                  .Sell_warrap_index_main_center_content_box_body_photos_popup
-                    選択してください
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      発送元の地域
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                  .Sell_warrap_index_main_center_content_box_body_contents
-                    .Sell_warrap_index_main_center_content_box_body_contents_filed
-                      %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
-                        %option{value: "選択してください"} 選択してください
-                        - Prefecture.all.each do |pref|
-                          %option{label: pref.name, value: pref.id}
-                            = pref.name
-                  .Sell_warrap_index_main_center_content_box_body_photos_popup
-                    選択してください
-            .Sell_warrap_index_main_center_content_box
-              .Sell_warrap_index_main_center_content_box_body
-                .Sell_warrap_index_main_center_content_box_body_photos
-                  .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
-                      発送までの日数
-                    %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
-                      必須
-                  .Sell_warrap_index_main_center_content_box_body_contents
-                    .Sell_warrap_index_main_center_content_box_body_contents_filed
-                      %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
-                        %option{label: "選択してください"} 選択してください
-                        %option{label: "1~2日で発送", value: 1} 1~2日で発送
-                        %option{label: "2~3日で発送", value: 2} 2~3日で発送
-                        %option{label: "4~7日で発送", value: 3} 4~7日で発送
-                  .Sell_warrap_index_main_center_content_box_body_photos_popup
-                    選択してください
-          %hr.Sell_warrap_index_main_center_border
-          .Sell_warrap_index_main_center_price
-            %p.Sell_warrap_index_main_center_price_show
-              価格　（¥300~9,999,999）
-            .Sell_warrap_index_main_center_price_box
-              .Sell_warrap_index_main_center_price_box_body
-                .Sell_warrap_index_main_center_price_box_body_photos
-                  .Sell_warrap_index_main_center_price_box_body_photos_fontFamily
-                    %label.Sell_warrap_index_main_center_price_box_body_photos_fontFamily_ex
-                      販売価格
-                    %span.Sell_warrap_index_main_center_price_box_body_photos_fontFamily_ex_note
-                      必須
-                %span.Sell_warrap_index_main_center_price_box_body_doll
-                  ¥
-                .Sell_warrap_index_main_center_price_box_body_right
-                  .Sell_warrap_index_main_center_price_box_body_right_in
-                    %input.Sell_warrap_index_main_center_price_box_body_right_in_num(type="text" placeholder="0")/
-              .Sell_warrap_index_main_center_price_box_body
-                .Sell_warrap_index_main_center_price_box_body_tax
-                  販売手数料（10%）
-                %span.Sell_warrap_index_main_center_price_box_body_solid
-                  ー
-              %hr.Sell_warrap_index_main_center_border
-              .Sell_warrap_index_main_center_price_box_body
-                .Sell_warrap_index_main_center_price_box_body_tax
-                  販売利益
-                %span.Sell_warrap_index_main_center_price_box_body_solid
-                  ー
-          .Sell_warrap_index_main_center_ex
-            = link_to "" do
-              %input(type="submit" value="出品する" class="Sell_warrap_index_main_center_ex_do")/
-            .Sell_warrap_index_main_center_ex_back
-              = link_to "/", class: "Sell_warrap_index_main_center_ex_back_in" do
-                もどる
-      .Sell_warrap_index_footer
-        =link_to image_tag("/assets/images/logo-white.png",alt:"flema",class:"Sell_warrap_index_footer_img"),"/"
-        %p.Sell_warrap_index_footer_icon
-          ©︎Furima, Inc
+-#出品の元コード、今は、残してありますが不必要になりましたら削除
+-# .Sell
+-#   .Sell_warrap
+-#     .Sell_warrap_index
+-#       .Sell_warrap_index_header
+-#         =link_to image_tag("/assets/images/logo.png",alt:"flema",class:"Sell_warrap_index_header_icon-img"),"/"
+-#       .Sell_warrap_index_main
+-#         .Sell_warrap_index_main_center
+-#           .Sell_warrap_index_main_center_navi
+-#           .Sell_warrap_index_main_center_content
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       出品画像
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                 %p.Sell_warrap_index_main_center_content_box_body_up
+-#                   １枚以上アップロードしてください
+-#                 .Sell_warrap_index_main_center_content_box_body_imgs
+-#                   .Sell_warrap_index_main_center_content_box_body_imgs_warraps
+-#                     .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs
+-#                       .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in
+-#                         %label.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label
+-#                           %input(type="file" autocomplete="off" tabindex="-1" multiple style="display:none" class="Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label_img")/
+-#                           %i.fas.fa-camera
+-#                           %p.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label_info
+-#                             ドラッグアンドドロップ
+-#                             %br
+-#                               またはクリックしてファイルをアップロード
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                     画像がありません
+-#           %hr.Sell_warrap_index_main_center_border
+-#           .Sell_warrap_index_main_center_content
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       商品名
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                 .Sell_warrap_index_main_center_content_box_body_contents
+-#                   .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                     %input.Sell_warrap_index_main_center_content_box_body_contents_filed_text(type="text" placeholder="40文字まで")/
+-#                 .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                   入力してください
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       商品説明
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                 .Sell_warrap_index_main_center_content_box_body_contents
+-#                   .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                     %textarea.Sell_warrap_index_main_center_content_box_body_contents_filed_area{type: "text", rows: "7", placeholder: "商品の説明（必須 1,000文字以内）\r\n（色、素材、重さ、定価、注意点など）\r\n\r\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\r\n"}
+-#                 .Sell_warrap_index_main_center_content_box_body_info
+-#                   %span.Sell_warrap_index_main_center_content_box_body_info_num
+-#                     0/1000
+-#                 .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                   入力してください
+-#           %hr.Sell_warrap_index_main_center_border
+-#           .Sell_warrap_index_main_center_content
+-#             %p.Sell_warrap_index_main_center_content_show
+-#               商品詳細
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       カテゴリー
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                 .Sell_warrap_index_main_center_content_box_body_contents
+-#                   .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                     %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
+-#                       %option{label: "選択してください"} 選択してください
+-#                       %option{label: "レディース", value: 1} レディース
+-#                       %option{label: "メンズ", value: 2} メンズ
+-#                       %option{label: "べピー・キッズ", value: 3} ベビー・キッズ
+-#                       %option{label: "インテリア・住まい・小物", value: 4} インテリア・住まい・小物
+-#                       %option{label: "本・音楽・ゲーム", value: 5} 本・音楽・ゲーム
+-#                       %option{label: "おもちゃ・ホビー・グッズ", value: 6} おもちゃ・ホビー・グッズ
+-#                       %option{label: "コスメ・香水・美容", value: 7} コスメ・香水・美容
+-#                       %option{label: "家電・スマホ・カメラ", value: 8} 家電・スマホ・カメラ
+-#                       %option{label: "スポーツ・レジャー", value: 9} スポーツ・レジャー
+-#                       %option{label: "ハンドメイド", value: 10} ハンドメイド
+-#                       %option{label: "チケット", value: 11} チケット
+-#                       %option{label: "自動車・オートバイ", value: 12} 自動車・オートバイ
+-#                       %option{label: "その他", value: 13} その他
+-#                 .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                   選択してください
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_any
+-#                       ブランド
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_any_note
+-#                       任意
+-#                 .Sell_warrap_index_main_center_content_box_body_contents
+-#                   .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                     %input.Sell_warrap_index_main_center_content_box_body_contents_filed_text(type="text" placeholder="例）シャネル")/
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       商品状態
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                 .Sell_warrap_index_main_center_content_box_body_contents
+-#                   .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                     %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
+-#                       %option{label: "選択してください"} 選択してください
+-#                       %option{label: "新品、未使用", value: 1} 新品、未使用
+-#                       %option{label: "未使用に近い", value: 2} 未使用に近い
+-#                       %option{label: "目立った傷や汚れなし", value: 3} 目立った傷や汚れなし
+-#                       %option{label: "やや傷や汚れあり", value: 4} やや傷や汚れあり
+-#                       %option{label: "全体的に状態が悪い", value: 5} 全体的に状態が悪い
+-#                 .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                   選択してください
+-#           %hr.Sell_warrap_index_main_center_border
+-#           .Sell_warrap_index_main_center_content
+-#             %p.Sell_warrap_index_main_center_content_show
+-#               配送について
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       配送料の負担
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                   .Sell_warrap_index_main_center_content_box_body_contents
+-#                     .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                       %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
+-#                         %option{label: "選択してください"} 選択してください
+-#                         %option{label: "送料込み（出品者負担）", value: 1} 送料込み（出品者負担）
+-#                         %option{label: "着払い（購入者負担）", value: 2} 着払い（購入者負担）
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                     選択してください
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       発送元の地域
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                   .Sell_warrap_index_main_center_content_box_body_contents
+-#                     .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                       %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
+-#                         %option{value: "選択してください"} 選択してください
+-#                         - Prefecture.all.each do |pref|
+-#                           %option{label: pref.name, value: pref.id}
+-#                             = pref.name
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                     選択してください
+-#             .Sell_warrap_index_main_center_content_box
+-#               .Sell_warrap_index_main_center_content_box_body
+-#                 .Sell_warrap_index_main_center_content_box_body_photos
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+-#                       発送までの日数
+-#                     %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                   .Sell_warrap_index_main_center_content_box_body_contents
+-#                     .Sell_warrap_index_main_center_content_box_body_contents_filed
+-#                       %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
+-#                         %option{label: "選択してください"} 選択してください
+-#                         %option{label: "1~2日で発送", value: 1} 1~2日で発送
+-#                         %option{label: "2~3日で発送", value: 2} 2~3日で発送
+-#                         %option{label: "4~7日で発送", value: 3} 4~7日で発送
+-#                   .Sell_warrap_index_main_center_content_box_body_photos_popup
+-#                     選択してください
+-#           %hr.Sell_warrap_index_main_center_border
+-#           .Sell_warrap_index_main_center_price
+-#             %p.Sell_warrap_index_main_center_price_show
+-#               価格　（¥300~9,999,999）
+-#             .Sell_warrap_index_main_center_price_box
+-#               .Sell_warrap_index_main_center_price_box_body
+-#                 .Sell_warrap_index_main_center_price_box_body_photos
+-#                   .Sell_warrap_index_main_center_price_box_body_photos_fontFamily
+-#                     %label.Sell_warrap_index_main_center_price_box_body_photos_fontFamily_ex
+-#                       販売価格
+-#                     %span.Sell_warrap_index_main_center_price_box_body_photos_fontFamily_ex_note
+-#                       必須
+-#                 %span.Sell_warrap_index_main_center_price_box_body_doll
+-#                   ¥
+-#                 .Sell_warrap_index_main_center_price_box_body_right
+-#                   .Sell_warrap_index_main_center_price_box_body_right_in
+-#                     %input.Sell_warrap_index_main_center_price_box_body_right_in_num(type="text" placeholder="0")/
+-#               .Sell_warrap_index_main_center_price_box_body
+-#                 .Sell_warrap_index_main_center_price_box_body_tax
+-#                   販売手数料（10%）
+-#                 %span.Sell_warrap_index_main_center_price_box_body_solid
+-#                   ー
+-#               %hr.Sell_warrap_index_main_center_border
+-#               .Sell_warrap_index_main_center_price_box_body
+-#                 .Sell_warrap_index_main_center_price_box_body_tax
+-#                   販売利益
+-#                 %span.Sell_warrap_index_main_center_price_box_body_solid
+-#                   ー
+-#           .Sell_warrap_index_main_center_ex
+-#             = link_to "" do
+-#               %input(type="submit" value="出品する" class="Sell_warrap_index_main_center_ex_do")/
+-#             .Sell_warrap_index_main_center_ex_back
+-#               = link_to "/", class: "Sell_warrap_index_main_center_ex_back_in" do
+-#                 もどる
+-#       .Sell_warrap_index_footer
+-#         =link_to image_tag("/assets/images/logo-white.png",alt:"flema",class:"Sell_warrap_index_footer_img"),"/"
+-#         %p.Sell_warrap_index_footer_icon
+-#           ©︎Furima, Inc

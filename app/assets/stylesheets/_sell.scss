@@ -1,17 +1,17 @@
-.Sell{
+.Sell {
   position: relative;
   min-height: 100%;
   width: 100%;
   height: 100%;
-  background-color: rgb(235,235,235);
-  &_warrap{
+  background-color: rgb(235, 235, 235);
+  &_warrap {
     padding: 0 0 40px 0;
-    &_index{
+    &_index {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      @media (min-width: 768px){
-        &_header{
+      @media (min-width: 768px) {
+        &_header {
           -webkit-box-align: center;
           height: 128px;
           padding-top: 40px;
@@ -19,28 +19,28 @@
           -webkit-box-pack: center;
           justify-content: center;
           text-align: center;
-          &_icon-img{
+          &_icon-img {
             height: 49px;
             width: 185px;
             vertical-align: middle;
           }
         }
-        &_main{
+        &_main {
           background-color: white;
           min-height: 100vh;
           max-width: 700px;
           width: 100%;
           margin: 0 auto;
-          &_center{
+          &_center {
             position: relative;
             min-height: 100vh;
             margin: 0 auto;
-            &_navi{
+            &_navi {
               -webkit-box-align: center;
               align-items: center;
               -webkit-box-pack: center;
               justify-content: center;
-              background-color: rgba(0,0,0,0.6);
+              background-color: rgba(0, 0, 0, 0.6);
               display: flex;
               left: 0px;
               min-height: 100vh;
@@ -53,35 +53,35 @@
               padding: 0px 16px;
               transition: all 0.3s ease-out 0s;
             }
-            &_content{
+            &_content {
               padding: 40px;
-              &_show{
+              &_show {
                 color: rgb(136, 136, 136);
                 font-size: 14px;
                 font-weight: 6000;
                 line-height: 1.4em;
                 margin-bottom: 24px;
               }
-              &_box{
+              &_box {
                 margin: 0;
-                &_body{
-                  &_photos{
+                &_body {
+                  &_photos {
                     margin-top: 15px;
-                    &_popup{
+                    &_popup {
                       color: red;
                       font-size: 14px;
                       line-height: 1.4em;
                       margin: 4px 0 0 0;
                     }
-                    &_fontFamily{
+                    &_fontFamily {
                       align-items: center;
                       display: flex;
-                      &_ex{
+                      &_ex {
                         margin-right: 8px;
                         font-size: 14px;
                         font-weight: 600;
                         line-height: 1.4em;
-                        &_note{
+                        &_note {
                           font-size: 12px;
                           padding: 0 4px;
                           background-color: red;
@@ -94,12 +94,12 @@
                           margin: 0;
                         }
                       }
-                      &_any{
+                      &_any {
                         margin-right: 8px;
                         font-size: 14px;
                         font-weight: 6000;
                         line-height: 1.4em;
-                        &_note{
+                        &_note {
                           font-size: 12px;
                           padding: 0 4px;
                           background-color: #bfbfbf;
@@ -114,16 +114,16 @@
                       }
                     }
                   }
-                  &_contents{
+                  &_contents {
                     margin-top: 16px;
                     align-items: center;
                     display: inline-flex;
                     width: 100%;
-                    &_filed{
+                    &_filed {
                       display: inline-block;
                       position: relative;
                       width: inherit;
-                      &_text{
+                      &_text {
                         border: 1px solid #ccc;
                         border-radius: 4px;
                         box-sizing: border-box;
@@ -135,7 +135,7 @@
                         padding: 0 16px;
                         width: inherit;
                       }
-                      &_area{
+                      &_area {
                         margin-top: 16px;
                         width: 100%;
                         border: 1px solid #ccc;
@@ -149,7 +149,7 @@
                         resize: vertical;
                         vertical-align: middle;
                       }
-                      &_category{
+                      &_category {
                         -webkit-appearance: name;
                         background-color: #fff;
                         border: 1px solid #ccc;
@@ -166,23 +166,23 @@
                       }
                     }
                   }
-                  &_up{
+                  &_up {
                     margin-top: 16px;
                     font-size: 14px;
                     line-height: 1.4em;
                   }
-                  &_imgs{
+                  &_imgs {
                     margin-top: 16px;
-                    &_warraps{
+                    &_warraps {
                       display: flex;
                       flex-wrap: wrap;
                       margin: -8px -4px 16px -4px;
-                      &_indexs{
+                      &_indexs {
                         height: 150px;
                         margin-top: 8px;
                         flex: 1 1 0%;
                         padding: 0px 4px;
-                        &_in{
+                        &_in {
                           align-content: center;
                           -webkit-box-align: center;
                           align-items: center;
@@ -199,16 +199,15 @@
                           border-color: rgb(204, 204, 204);
                           border-image: initial;
                           transition: all 0.5s ease-out 0s;
-                          &_label{
+                          &_label {
                             height: 100%;
                             width: 100%;
-                            padding-top: 50px;
-                            text-align: center;
-                            &_img{
+                            padding: 20px 0;
+                            &_img {
                               font-family: inherit;
                               font-size: 100%;
                             }
-                            &_info{
+                            &_info {
                               font-size: 12px;
                               line-height: 1.4em;
                               width: 100%;
@@ -218,7 +217,7 @@
                       }
                     }
                   }
-                  &_info{
+                  &_info {
                     margin-top: 16px;
                     text-align: right;
                     color: #888;
@@ -228,7 +227,7 @@
                 }
               }
             }
-            &_border{
+            &_border {
               border-top-color: #efefef;
               border-left: 0 solid #efefef;
               border-bottom: 0 solid #efefef;
@@ -236,18 +235,18 @@
               border-top-style: solid;
               margin: 0;
             }
-            &_price{
+            &_price {
               padding: 40px 40px 0;
-              &_show{
+              &_show {
                 color: rgb(136, 136, 136);
                 font-size: 13px;
                 font-weight: 600;
                 line-height: 1.4em;
                 margin-bottom: 24px;
               }
-              &_box{
+              &_box {
                 margin-bottom: 40px;
-                &_body{
+                &_body {
                   padding-top: 0px;
                   padding: 12px 0;
                   -webkit-box-align: center;
@@ -255,18 +254,18 @@
                   box-sizing: content-box;
                   display: flex;
                   height: 46px;
-                  &_photos{
+                  &_photos {
                     margin-right: auto;
                     white-space: nowrap;
-                    &_fontFamily{
+                    &_fontFamily {
                       align-items: center;
                       display: flex;
-                      &_ex{
+                      &_ex {
                         margin-right: 8px;
                         font-size: 14px;
                         font-weight: 600;
                         line-height: 1.4em;
-                        &_note{
+                        &_note {
                           font-size: 12px;
                           padding: 0 4px;
                           background-color: red;
@@ -281,22 +280,22 @@
                       }
                     }
                   }
-                  &_doll{
+                  &_doll {
                     font-size: 14px;
                     margin-right: 8px;
                   }
-                  &_right{
+                  &_right {
                     align-items: center;
                     display: inline-flex;
                     width: 100%;
                     max-width: 285px;
                     color: black;
                     font-size: 16px;
-                    &_in{
+                    &_in {
                       display: inline-block;
                       position: relative;
                       width: inherit;
-                      &_num{
+                      &_num {
                         text-align: right;
                         border: 1px solid #ccc;
                         border-radius: 4px;
@@ -311,7 +310,7 @@
                       }
                     }
                   }
-                  &_tax{
+                  &_tax {
                     margin-right: auto;
                     white-space: nowrap;
                     color: #333333;
@@ -320,16 +319,16 @@
                     line-height: 1.4em;
                     margin-bottom: 24px;
                   }
-                  &_solid{
+                  &_solid {
                     font-size: 14px;
                   }
                 }
               }
             }
-            &_ex{
+            &_ex {
               width: 360px;
               margin: 0px auto 32px;
-              &_do{
+              &_do {
                 background-color: red;
                 color: white;
                 width: 100%;
@@ -341,7 +340,7 @@
                 display: inline-block;
                 font-weight: 600;
               }
-              &_back{
+              &_back {
                 margin-top: 24px;
                 display: flex;
                 width: 100%;
@@ -350,30 +349,36 @@
                 justify-content: center;
                 -webkit-box-align: center;
                 align-items: center;
-                &_in{
+                &_in {
                   color: #0095ee;
                   text-decoration: none;
                   word-break: keep-all;
                 }
               }
             }
-          }  
+          }
         }
       }
-      &_footer{
+      &_footer {
         padding: 40px 0 41px;
         margin-top: auto;
         text-align: center;
-        &_img{
+        &_img {
           height: 40px;
           width: 97px;
           margin-bottom: 8px;
           vertical-align: middle;
         }
-        &_icon{
+        &_icon {
           font-size: 12px;
         }
       }
     }
   }
+}
+#image-box {
+  height: 100%;
+}
+.js-file {
+  display: none;
 }

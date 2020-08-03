@@ -10,14 +10,18 @@ class Item < ApplicationRecord
   end
   #image紐付け先のバリデーション
   validates_associated :images
-  validates :images, presence: { message: 'は１枚以上添付してください'} 
+  validates :images, presence: { message: 'は１枚以上添付してください'}
   #ここまでimageのバリデーション
 
-  has_many :images
+  #userテーブルの「id」とitemsテーブルの「buyer_id」「saler_id」の紐付け
+  belongs_to :saler, class_name: "User"
+  belongs_to :buyer, class_name: "User"
+
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
   #選択肢作成
-  enum status: {
+  enum item_status: {
     "新品": "新品",
     "未使用に近い": "未使用に近い",
     "目立った傷等はない": "目立った傷等はない",
