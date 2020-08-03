@@ -105,7 +105,7 @@
                         任意
                   .Sell_warrap_index_main_center_content_box_body_contents
                     .Sell_warrap_index_main_center_content_box_body_contents_filed
-                      %input.Sell_warrap_index_main_center_content_box_body_contents_filed_text(type="text" placeholder="例）シャネル")/
+                      = f.collection_select :brand_id, Brand.all, :id, :brand_name,{}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_text", placeholder: "例) シャネル"}
               .Sell_warrap_index_main_center_content_box
                 .Sell_warrap_index_main_center_content_box_body
                   .Sell_warrap_index_main_center_content_box_body_photos
