@@ -1,5 +1,5 @@
 class CreditController < ApplicationController
-  before_action :set_card, only:[:show, :delete]
+  before_action :set_card, only: [:show, :delete]
 
   def pay
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
