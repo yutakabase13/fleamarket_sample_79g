@@ -33,10 +33,10 @@ ja:
         name: 商品名
         description: 説明文
         price: 値段
-        item_status: 状態
+        status_id: 状態
         owner_area: 発送元
-        shipping_fee: 送料
-        shipping_date: 発送日数
+        fee_id: 送料
+        shipping_id: 発送日数
         images: 商品画像
       image:
         image: 商品画像
