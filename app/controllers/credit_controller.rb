@@ -1,6 +1,6 @@
 class CreditController < ApplicationController
   def pay
-    Payjp.api_key = "sk_test_d51186afdfe6ca64ffe09a80"
+    Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     if params['payjpToken'].blank?
       redirect_to action: "new"
     else
@@ -27,7 +27,7 @@ class CreditController < ApplicationController
     if card.blank?
       redirect_to action: "new"
     else
-      Payjp.api_key = "sk_test_d51186afdfe6ca64ffe09a80"
+      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @customer_card = customer.cards.retrieve(card.card_id)
     end
@@ -40,7 +40,7 @@ class CreditController < ApplicationController
     else
       @product = Product.find(params[:product_id])
       card = current_user.credit_card
-      Payjp.api_key = "sk_test_d51186afdfe6ca64ffe09a80"
+      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       Payjp::Charge.create(
         amount: @product.price,
         customer: card.customer_id,
@@ -57,13 +57,19 @@ class CreditController < ApplicationController
   end
       
   def delete
-    card =　current_user.credit_card
+    card = current_user.credit_card
     if card.blank?
       redirect_to action: "new"
     else
-      Payjp.ap_key = 'sk_test_d51186afdfe6ca64ffe09a80'
+      Payjp.ap_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
     end
+  end
+  
+  private
+
+  def set_card
+    @card = current_user.credit_card
   end
 end
