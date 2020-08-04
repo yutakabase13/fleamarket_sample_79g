@@ -10,10 +10,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent
-    end
+    @category_parent_array = Category.where(ancestry: nil)
   end
 
   def get_category_children
@@ -30,10 +27,7 @@ class ItemsController < ApplicationController
       redirect_to items_path(@item)
     else
       @item.images.new
-      @category_parent_array = []
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent
-      end
+      @category_parent_array = Category.where(ancestry: nil)
       render :new
     end
   end

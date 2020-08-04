@@ -34,10 +34,9 @@ $(document).on("turbolinks:load", function () {
     }
     $("#parent_category").on("change", function () {
       var parentCategory = document.getElementById("parent_category").value;
-      console.log(parentCategory);
       if (parentCategory) {
         $.ajax({
-          url: "items/get_category_children",
+          url: "/items/get_category_children",
           type: "GET",
           data: { parent_id: parentCategory },
           dataType: "json",
@@ -66,7 +65,7 @@ $(document).on("turbolinks:load", function () {
         var childId = $("#child_category option:selected").data("category");
         if (childId != "---") {
           $.ajax({
-            url: "items/get_category_grandchildren",
+            url: "/items/get_category_grandchildren",
             type: "GET",
             data: { child_id: childId },
             dataType: "json",
