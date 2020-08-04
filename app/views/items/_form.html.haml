@@ -3,7 +3,7 @@
     .Sell_warrap
       .Sell_warrap_index
         .Sell_warrap_index_header
-          =link_to image_tag("/assets/images/logo.png",alt:"flema",class:"Sell_warrap_index_header_icon-img"),"/"
+          =link_to image_tag("/images/logo.png",alt:"flema",class:"Sell_warrap_index_header_icon-img"),"/"
         .Sell_warrap_index_main
           .Sell_warrap_index_main_center
             .Sell_warrap_index_main_center_navi
@@ -91,7 +91,8 @@
                         必須
                     .Sell_warrap_index_main_center_content_box_body_contents
                       .Sell_warrap_index_main_center_content_box_body_contents_filed
-                        = f.select :category, @category_parent_array, {}, {class: 'Sell_warrap_index_main_center_content_box_body_contents_filed_category', id: 'parent_category'}
+                        = f.collection_select :category_id, @category_parent_array, :id, :category_name, {prompt: "---"}, {class: 'Sell_warrap_index_main_center_content_box_body_contents_filed_category', id: 'parent_category'}
+                        = @item.errors.full_messages_for(:category_id).first
                     .Sell_warrap_index_main_center_content_box_body_photos_popup
 
               .Sell_warrap_index_main_center_content_box
@@ -104,7 +105,7 @@
                         任意
                   .Sell_warrap_index_main_center_content_box_body_contents
                     .Sell_warrap_index_main_center_content_box_body_contents_filed
-                      %input.Sell_warrap_index_main_center_content_box_body_contents_filed_text(type="text" placeholder="例）シャネル")/
+                      = f.collection_select :brand_id, Brand.all, :id, :brand_name,{}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_text", placeholder: "例) シャネル"}
               .Sell_warrap_index_main_center_content_box
                 .Sell_warrap_index_main_center_content_box_body
                   .Sell_warrap_index_main_center_content_box_body_photos
@@ -115,8 +116,8 @@
                         必須
                   .Sell_warrap_index_main_center_content_box_body_contents
                     .Sell_warrap_index_main_center_content_box_body_contents_filed
-                      = f.select :item_status,[["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],{prompt:"選択してください"} , class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"
-                      = @item.errors.full_messages_for(:item_status).first
+                      = f.collection_select :status_id, Status.all, :id, :name, {include_blank: "---"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
+                      = @item.errors.full_messages_for(:status_id).first
                   .Sell_warrap_index_main_center_content_box_body_photos_popup
 
             %hr.Sell_warrap_index_main_center_border
@@ -133,8 +134,8 @@
                         必須
                     .Sell_warrap_index_main_center_content_box_body_contents
                       .Sell_warrap_index_main_center_content_box_body_contents_filed
-                        = f.select :shipping_fee,[['送料込み（出品者負担）'],['着払い（購入者負担）']],{prompt: "選択してください"},class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"
-                        = @item.errors.full_messages_for(:shipping_fee).first
+                        = f.collection_select :fee_id, Fee.all, :id, :name, {include_blank: "---"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
+                        = @item.errors.full_messages_for(:fee_id).first
                     .Sell_warrap_index_main_center_content_box_body_photos_popup
 
               .Sell_warrap_index_main_center_content_box
@@ -147,13 +148,9 @@
                         必須
                     .Sell_warrap_index_main_center_content_box_body_contents
                       .Sell_warrap_index_main_center_content_box_body_contents_filed
-                        %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category{name: "category_type"}
-                          %option{value: "選択してください"} 選択してください
-                          - Prefecture.all.each do |pref|
-                            %option{label: pref.name, value: pref.id}
-                              = pref.name
-                              = @item.errors.full_messages_for(:owner_area).first
+                        = f.collection_select :owner_area, Prefecture.all, :id, :name, {selected: "#{current_user.address.prefecture.id}"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
                     .Sell_warrap_index_main_center_content_box_body_photos_popup
+                      = @item.errors.full_messages_for(:owner_area).first
 
               .Sell_warrap_index_main_center_content_box
                 .Sell_warrap_index_main_center_content_box_body
@@ -165,8 +162,8 @@
                         必須
                     .Sell_warrap_index_main_center_content_box_body_contents
                       .Sell_warrap_index_main_center_content_box_body_contents_filed
-                        = f.select :shipping_date, [['1~2日で発送'],['2~3日で発送'],['4~7日で発送']],{prompt: "選択してください"}, class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"
-                        = @item.errors.full_messages_for(:shipping_date).first
+                        = f.collection_select :shipping_id, Shipping.all, :id, :name, {include_blank: "---"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
+                        = @item.errors.full_messages_for(:shipping_id).first
                     .Sell_warrap_index_main_center_content_box_body_photos_popup
 
             %hr.Sell_warrap_index_main_center_border
@@ -198,13 +195,13 @@
                     販売利益
                   %span.Sell_warrap_index_main_center_price_box_body_solid
                     ー
+                = f.hidden_field :seller_id, {value: current_user.id}
             .Sell_warrap_index_main_center_ex
-              = link_to "" do
-                = f.submit "出品する" ,class: "Sell_warrap_index_main_center_ex_do"
+              = f.submit "出品する" ,class: "Sell_warrap_index_main_center_ex_do"
               .Sell_warrap_index_main_center_ex_back
                 = link_to "/", class: "Sell_warrap_index_main_center_ex_back_in" do
                   もどる
         .Sell_warrap_index_footer
-          =link_to image_tag("/assets/images/logo-white.png",alt:"flema",class:"Sell_warrap_index_footer_img"),"/"
+          =link_to image_tag("/images/logo-white.png",alt:"flema",class:"Sell_warrap_index_footer_img"),"/"
           %p.Sell_warrap_index_footer_icon
             ©︎Furima, Inc

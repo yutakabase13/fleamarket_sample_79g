@@ -7,5 +7,8 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
+    %link{src: "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/af.min.js"}
+    %script{src:"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"}
+    %script{src:"https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"}
   %body
     = yield

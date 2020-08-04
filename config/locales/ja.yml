@@ -38,6 +38,7 @@ ja:
         fee_id: 送料
         shipping_id: 発送日数
         images: 商品画像
+        category_id: カテゴリー
       image:
         image: 商品画像
   date:
