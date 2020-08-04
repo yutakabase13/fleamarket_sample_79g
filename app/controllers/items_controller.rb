@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
 
   def show
     @user_name = User.find(@item.id).nickname
-    @brand = Brand.find(@item.id).
+    @brand = Brand.find(@item.id).brand_name
     @category_name = Category.find(@item.category_id).category_name
     
   end
@@ -55,8 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    # カテゴリーボックスのさいにエラーが出てしまうので一時的にコメントアウト
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
 
