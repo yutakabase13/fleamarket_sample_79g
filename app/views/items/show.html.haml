@@ -139,12 +139,12 @@
           %th.item_details__lists
             商品の状態
           %td.detail__content
-            = @item.item_status
+            = @item.status_id
         %tr.item_details
           %th.item_details__lists
             配送料の負担
           %td.detail__content
-            = @item.shipping_fee
+            = @item.fee_id
         %tr.item_details
           %th.item_details__lists
             配送元地域
@@ -154,7 +154,7 @@
           %th.item_details__lists
             発送日の目安
           %td.detail__content
-            = @item.shipping_date
+            = @item.shipping_id
       .pagecontents
         %ul.pagecontent
           %li.pagecontent__list
