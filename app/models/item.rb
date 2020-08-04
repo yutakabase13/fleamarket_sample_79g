@@ -3,19 +3,23 @@ class Item < ApplicationRecord
     validates :name
     validates :description
     validates :price
-    validates :shipping_fee
-    validates :item_status
+    validates :fee_id
+    validates :status_id
     validates :owner_area
-    validates :shipping_date
+    validates :shipping_id
   end
+
+  validates :price, numericality:{only_integer: true,  message: "は半角数字のみ入力してください"}, allow_blank: true
+
   #image紐付け先のバリデーション
   validates_associated :images
   validates :images, presence: { message: 'は１枚以上添付してください'} 
   #ここまでimageのバリデーション
+  belongs_to :category
 
-  has_many :images
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-
+  
   #選択肢作成
   enum status: {
     "新品": "新品",
