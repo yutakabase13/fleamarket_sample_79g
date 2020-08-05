@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create, :sell, :confirmation]
+  before_action :set_item, only: [:show, :edit, :destroy]
   def index
   end
 
