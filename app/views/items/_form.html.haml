@@ -24,15 +24,14 @@
                         .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in
                           %label.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label
                             #image-box
-                              #previews
-                                - if @item.persisted?
-                                  - @item.images.each_with_index do |image, i|
-                                    = image_tag image.image.url, data: { index: i}, width: "100", height: "100"
                             %p.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label_info
                               クリックしてファイルをアップロード
+                          #previews
+                            - if @item.persisted?
+                              - @item.images.each_with_index do |image, i|
+                                = image_tag image.image.url, data: { index: i}, width: "100", height: "100"
                     = f.fields_for :images do |i|
                       #js-file_group
-                        .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label_img
                         = i.file_field :image, class: 'js-file',style: "display: none"
                         //下記は、hamlでdataが取れないので文字列に変えてsplitでattributesの数字を取ってあります
                         -# ,{data: {index: "#{i.index}"}}

@@ -1,16 +1,17 @@
 $(document).on("turbolinks:load", () => {
   // 画像用のinputを生成する関数
   const buildFileField = (num) => {
-    const html = `<div id="js-file_group">
-                    <input class="js-file" type="file"
+    const html = `<input class="js-file" type="file"
                       name="item[images_attributes][${num}][image]"
-                      id="item_images_attributes_${num}_image"><br>
-                  </div>`;
+                      id="item_images_attributes_${num}_image">`;
     return html;
   };
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url) => {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<div class="img-wrapper">
+                    <img data-index="${index}" src="${url}" width="100px" height="100px" class="preview-img">
+                    <div class="js-remove">削除</div>
+                  </div>`;
     return html;
   };
 
@@ -33,7 +34,7 @@ $(document).on("turbolinks:load", () => {
       img.setAttribute("src", blobUrl);
     } else {
       // 新規画像追加の処理
-      $("#previews").before(buildImg(targetIndex, blobUrl));
+      $("#previews").append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $("#js-file_group").append(buildFileField(fileIndex[0]));
       fileIndex.shift();
@@ -46,17 +47,18 @@ $(document).on("turbolinks:load", () => {
     $(".js-file")[fileIndex[0] - 1].click();
   });
 
-  $("#image-box").on("click", ".js-remove", function (e) {
+  $("#previews").on("click", ".img-wrapper", function (e) {
+    console.log('fired')
     const targetIndex = $(this)[0].id.split("_")[3];
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop("checked", true);
-    $(this).parent().remove();
+    $(this).remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($(".js-file").length == 0)
-      $("#image-box").append(buildFileField(fileIndex[0]));
+      $("#previews").append(buildFileField(fileIndex[0]));
   });
 });
