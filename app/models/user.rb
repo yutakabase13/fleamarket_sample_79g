@@ -30,4 +30,5 @@ class User < ApplicationRecord
 
   has_one :account
   has_one :address
+  has_one :credit
 end
