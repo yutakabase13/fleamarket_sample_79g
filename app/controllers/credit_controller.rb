@@ -10,7 +10,7 @@ class CreditController < ApplicationController
         card: params['payjpToken'],
         metadata: {user_id: current_user.id}
       )
-      @card = CreditCard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
         flash[:notice] = 'クレジットカードの登録が完了しました'
@@ -25,17 +25,17 @@ class CreditController < ApplicationController
   end
   
   def show
-    if card.blank?
+    if @card.blank?
       redirect_to action: "new"
     else
       Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @customer_card = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @customer_card = customer.cards.retrieve(@card.card_id)
     end
   end
     
   def buy
-    if card.blank?
+    if @card.blank?
       redirect_to action: "new"
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
@@ -58,11 +58,11 @@ class CreditController < ApplicationController
   end
       
   def delete
-    if card.blank?
+    if @card.blank?
       redirect_to action: "new"
     else
       Payjp.ap_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
     end
   end
@@ -70,7 +70,6 @@ class CreditController < ApplicationController
   private
 
   def set_card
-    root to 'credit#new'
-    resources only, set_card: [:show, :delete]
+    @card = current_user.credit
   end
 end
