@@ -109,12 +109,15 @@
   }
 }
 
-
+.mainWarrapp{
+  background: #fbfbfb;
+}
 
 .details{
-  padding: 0 60px;
+  padding: 0 60px 20px;
   position: relative;
   border-top: 1px solid #eeeeee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background-color: #ffffff;
 }
 .details_lists{
@@ -136,13 +139,13 @@
 .fa{
   height: 14px;
   text-decoration: none;
-}
+} 
 
 
 .detail__main{
   width: 700px;
   margin: 0 auto;
-  margin-top: 30px;
+  padding-top: 40px;
 }
 .detail_main__box{
   background-color: #ffffff;
@@ -158,17 +161,40 @@
   text-align: center;
 }
 .detail__image {
-  padding: 40px;
-  margin: auto;
+  margin-top: 16px;
 }
 
 .other__images {
   position: relative;
+  display: flex;
 }
 
 .image {
-  position: absolute;
-  width: 25%;
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: center;
+  margin: 0 auto;
+  &_show{
+    object-fit: cover;
+    height: 364px;
+    display: none;
+  }
+.image_sub{
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  height: 110px;
+  width: 100%;
+  &_show{
+    margin-left: 10px;
+    &_small{
+      display: none;
+      height: 87px;
+      object-fit: cover;
+    }
+  }
+}  
 }
 
 h2{
@@ -182,6 +208,18 @@ p {
   margin-bottom: 10px;
   font-size: 16px;
 }
+.items_buy{
+  font-size: 24px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 30px;
+}
+
 .item__text {
   margin-bottom: 30px;
   font-size: 18px;
@@ -204,7 +242,7 @@ p {
   padding: 15px;
 }
 
-.item_list {
+.item__list {
   color: #3CCACE;
   text-decoration: none;
 }

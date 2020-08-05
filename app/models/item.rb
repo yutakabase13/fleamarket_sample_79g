@@ -15,6 +15,29 @@ class Item < ApplicationRecord
   validates_associated :images
   validates :images, presence: { message: 'は１枚以上添付してください'}
   #ここまでimageのバリデーション
+  belongs_to :category
+
+  
+  #選択肢作成
+  enum status: {
+    "新品": "新品",
+    "未使用に近い": "未使用に近い",
+    "目立った傷等はない": "目立った傷等はない",
+    "軽い傷がある": "軽い傷がある",
+    "汚れが多い": "汚れが多い",
+    "かなり汚れている": "かなり汚れている",
+  }
+  enum shipping: {
+    "1~2日": "1~2日",
+    "2~3日": "2~3日",
+    "3~4日": "3~4日",
+    "4~5日": "4~5日",
+    "一週間以上": "一週間以上",
+  }
+  enum shipping_fee: {
+    "送料込み(出品者負担)": "送料込み(出品者負担)",
+    "着払い(購入者負担)": "着払い(購入者負担)"
+  }
 
 
   has_many :images, dependent: :destroy
@@ -22,4 +45,5 @@ class Item < ApplicationRecord
   belongs_to :category
   validates :category_id, presence: true
   validates :category, presence: true, if: -> { category_id.present? }
+
 end

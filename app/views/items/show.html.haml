@@ -84,76 +84,77 @@
           >       
       %li.details_list
         = link_to '/',class: "detail_list" do
-          product2
-    
+          = @item.name
+.mainWarrapp  
   .detail__main
     .detail_main__box
       .detail__title 
-        %h1 product2
-        - if user_signed_in? && @item.seller_id == current_user.id
-          %span
-            = link_to "商品の削除", item_path(@item.id), method: :delete, class: "detail__delete"
+        %h1 
+          = @item.name
+          - if user_signed_in? && @item.seller_id == current_user.id
+            %span
+              = link_to "商品の削除", item_path(@item.id), method: :delete, class: "detail_delete"
+            %span
+              = link_to "商品の編集", edit_item_path, class: "detail_delete"
       .detail__image
-        = link_to "/", alt: "furima_item" 
         %ul.other__images
-          %li.image
-        = link_to "/", alt: "furima_item" 
-        = link_to "/", alt: "furima_item" 
-        = link_to "/", alt: "furima_item" 
-
+          - @item.images.each do |image|
+            %li.image
+              = image_tag image.image_url,class: "image_show"
+              %ul.image_sub
+                %il.image_sub_show
+                  = image_tag image.image_url,class: "image_sub_show_small"
+                  = image_tag image.image_url,class: "image_sub_show_small" 
       .items__price
-        %h2 ¥20000
-        %p (税込)送料込み
+        %h2 
+          = @item.price
+        %p (税込)送料込み 
+      - if user_signed_in? && @item.seller_id != current_user.id
+        %span
+          = link_to "購入する", confirmation_items_path, class: "items_buy"
       .item__text
-        親譲りの無鉄砲で小供の時から損ばかりしている。
-        小学校に居る時分学校の二階から飛び降りて一週間
-        ほど腰を抜かした事がある。なぜそんな無闇をした
-        と聞く人があるかも知れぬ。別段深い理由でもない。
-        新築の二階から首を出していたら、同級生の一人が冗
-        談に、いくら威張っても、そこから飛び降りる事は
-        出来まい。弱虫やーい。と囃したからである。
-        小使に負ぶさって帰って来た時、おやじが大きな眼を
-        して二階ぐらいから飛び降りて腰
+        = @item.description
       %table.item_details
         %tr.item_details
           %th.item_details__lists
             出品者
           %td.detail__content
-            = link_to '/',class: "item__list" 
+            = @user_name
         %tr.item_details
           %th.item_details__lists
             カテゴリー
           %td.detail__content
-            = link_to '/',class: "item__list" 
-            = link_to '/',class: "item__list" 
-            = link_to '/',class: "item__list" 
+            = link_to "" ,class: "item__list" do
+              = @category_name
         %tr.item_details
           %th.item_details__lists
             ブランド
           %td.detail__content
-            = link_to '/',class: "item__list"
-      
+            = @brand
         %tr.item_details
           %th.item_details__lists
-            商品のサイス
+            商品のサイズ
           %td.detail__content
         %tr.item_details
           %th.item_details__lists
             商品の状態
           %td.detail__content
+            = @item.status_id
         %tr.item_details
           %th.item_details__lists
             配送料の負担
           %td.detail__content
+            = @item.fee_id
         %tr.item_details
           %th.item_details__lists
             配送元地域
           %td.detail__content
-            = link_to '/',class: "item__list" 
+            = link_to @item.owner_area , item_path,class: "item__list" 
         %tr.item_details
           %th.item_details__lists
             発送日の目安
           %td.detail__content
+            = @item.shipping_id
       .pagecontents
         %ul.pagecontent
           %li.pagecontent__list
@@ -182,3 +183,59 @@
     .category1_items
       = link_to '/',class: "category1_form" do
         メンズをもっと見る
+
+.middle-main
+  .middle-main__pickupContainer
+  .middle-main__appBanner
+    = image_tag("/assets/bg-appBanner-pict", size: "#", alt: "haikei", class: "appBanner")
+    .middle-main__appBanner__inner
+      .middle-main__appBanner__inner__inner-title
+        だれでもかんたん、人生を変えるフリマアプリ
+      .middle-main__appBanner__inner__inner-title__inner-text
+        今すぐ無料ダウンロード！
+      .middle-main__appBanner__inner__inner-title__inner-text__inner-icon
+        = image_tag("/assets/applestore.svg", size: "180x53", alt: "appletag", class: "inner-icon")
+        = image_tag("/assets/googleplay.svg", size: "180x53", alt: "gogletag", class: "inner-icon")
+
+  .middle-main__top-footer
+    .middle-main__top-footer__case
+      .middle-main__top-footer__case__break
+        .middle-main__top-footer__case__break__footer-title
+          FURIMAについて
+        .middle-main__top-footer__case__break__footer-title__outline
+          会社概要（運営会社）
+        .middle-main__top-footer__case__break__footer-title__outline__privacy
+          プライバシーポリシー
+        .middle-main__top-footer__case__break__footer-title__outline__privacy__terms
+          FURIMA利用規約
+        .middle-main__top-footer__case__break__footer-title__outline__privacy__terms__covenant
+          ポイントに関する特約
+      .middle-main__top-footer__case__break
+        .middle-main__top-footer__case__break__footer-title
+          FURIMAを見る
+        .middle-main__top-footer__case__break__footer-title__outline
+          カテゴリー一覧
+        .middle-main__top-footer__case__break__footer-title__outline__privacy
+          ブランド一覧
+        .middle-main__top-footer__case__break__footer-title__outline__privacy__terms
+        .middle-main__top-footer__case__break__footer-title__outline__privacy__terms__covenant
+        .middle-main__top-footer__case__break__footer-title__outline__privacy__terms__covenant__footer-logo
+          = image_tag("/assets/logo-white.png", size: "", alt: "furima", class: "footer-logo")
+        .middle-main__top-footer__case__break__footer-title__outline__privacy__terms__covenant__footer-logo__bottom-logo
+          © FURIMA
+      .middle-main__top-footer__case__break
+        .middle-main__top-footer__case__break__footer-title
+          ヘルプ＆ガイド
+        .middle-main__top-footer__case__break__footer-title__outline
+          FURIMAガイド
+        .middle-main__top-footer__case__break__footer-title__outline__privacy
+          FURIMAロゴ利用ガイドライン
+        .middle-main__top-footer__case__break__footer-title__outline__privacy__terms
+          お知らせ
+          
+  .middle-main__purchaseBtn
+    .middle-main__purchaseBtn__purchase-text
+      出品する
+      .middle-main__purchaseBtn__purchase-text__purchase-icon
+    = link_to image_tag("/assets/icon_camera.svg", size: "54x54", alt: "furima", class: "purchase-icon"), new_item_path
+
