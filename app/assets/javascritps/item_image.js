@@ -3,7 +3,7 @@ $(document).on("turbolinks:load", () => {
   const buildFileField = (num) => {
     const html = `<input class="js-file" type="file"
                       name="item[images_attributes][${num}][image]"
-                      id="item_images_attributes_${num}_image">`;
+                      id="item_images_attributes_${num}_image" data-index="${num}">`;
     return html;
   };
   // プレビュー用のimgタグを生成する関数
@@ -44,18 +44,19 @@ $(document).on("turbolinks:load", () => {
   });
 
   $("#image-box").on("click", function () {
-    $(".js-file")[fileIndex[0] - 1].click();
+    $(`input[data-index="${fileIndex[0] - 1}"]`).click();
   });
 
   $("#previews").on("click", ".img-wrapper", function (e) {
-    console.log('fired')
-    const targetIndex = $(this)[0].id.split("_")[3];
+    const targetIndex = $(this).children('img').data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
-    if (hiddenCheck) hiddenCheck.prop("checked", true);
+    if (hiddenCheck) {hiddenCheck.prop("checked", true);}
     $(this).remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
+    $(`input[data-index="${targetIndex}"]`).remove();
+    
+    // $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($(".js-file").length == 0)
