@@ -37,8 +37,8 @@
               発送元・お届け先住所変更
               = icon('fas', 'caret-right', class: "UserDetails__icon")
           .UserDetails__parent
-            = link_to '/', class: "UserDetails__child" do
-              クレジットカード登録
+            = link_to new_credit_path, class: "UserDetails__child" do
+              クレジットカード登録/詳細
               = icon('fas', 'caret-right', class: "UserDetails__icon")
           .UserDetails__parent
             = link_to destroy_user_session_path, data: { confirm: "本当にログアウトします？"}, method: :delete, class: "UserDetails__child logout" do

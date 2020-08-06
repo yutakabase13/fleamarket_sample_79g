@@ -1,1 +1,21 @@
-= link_to "戻る", root_path
+.Credit-Wrapper
+  %p.Credit-Wrapper__title= "クレジットカード情報"
+  .Credit-Wrapper__form
+    %span.charge-errors
+    .Register-Inner
+
+      .Register-Inner__form
+        %span.Register-Inner__label= "カード番号: "
+        %span.Register-Inner__number
+          = "**** **** ****" + @customer_card.last4
+
+      .Register-Inner__select
+        %span.Register-Inner__label= "有効期限: "
+        %span.Register-Inner__expire
+          - exp_month = @customer_card.exp_month.to_s
+          - exp_year = @customer_card.exp_month.to_s
+          = exp_month + "/" + exp_year
+      .actions
+        = form_tag(delete_credit_index_path, method: :post, id: 'charge-form', name: "inputForm") do
+          %input{ type: "hidden", name: "card_id", value: ""}
+          %button.register-member 削除する
