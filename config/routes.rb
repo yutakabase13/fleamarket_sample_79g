@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   end
   resources :homes, only: [:new]
   resources :credit, only: [:new, :show, :destroy] do
-    member do
-      get :pay
+    collection do
+      post :pay
       get :buy
     end
   end

@@ -22,6 +22,8 @@ class CreditController < ApplicationController
   end  
 
   def new
+    card = Credit.where(user_id: current_user.id)
+    redirect_to action: "show" if card.exists?
   end
   
   def show
