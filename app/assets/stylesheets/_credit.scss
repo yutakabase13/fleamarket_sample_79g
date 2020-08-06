@@ -1,0 +1,116 @@
+// Place all the styles related to the register controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin require-label{
+  padding: 1px;
+  background-color: tomato;
+  color: #fff;
+  border-radius: 4px;
+}
+@mixin label-font{
+  font-size: 15px;
+  font-weight: 600;
+}
+@mixin input-form{
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border:1px solid #333;
+  font-size: 14px;
+}
+
+//クレジット登録と詳細ページ双方に適用するスタイル
+
+.Credit-Wrapper{
+  padding: 100px;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  &__title{
+    color: #333;
+    font-size: 30px;
+  }
+  &__form{
+    width: 50%;
+    height: 60%;
+    background-color: #fff;
+    margin: 0 auto;
+    text-align: left;
+    border-radius: 3px;
+  }
+}
+
+.Register-Inner{
+  padding: 40px 80px 40px 80px;
+  width: 80%;
+  margin: 0 auto;
+  //カード番号の入力
+  &__select{
+    margin-bottom: 30px;
+  }
+  &__label{
+    @include label-font();
+  }
+  &__require{
+    @include label-font();
+    @include require-label();
+  }
+  &__input-number{
+    @include input-form();
+  }
+  &__cards{
+    width: 100%;
+    height: auto;
+  }
+  //有効期限の入力
+  &__selects{
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__year, &__month{
+    display: flex;
+  }
+
+  //セキュリティ番号のスタイル
+  &__input-security{
+    @include input-form();
+  }
+  &__card-info{
+    text-align: right;
+    font-size: 10px;
+  }
+}
+
+//月と年のセレクトボックスのスタイル
+.exp_month, .exp_year{
+  display: inline-block;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+//登録ボタン
+.actions{
+  margin-top: 30px;
+}
+.register-member{
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: turquoise;
+  border: none;
+  font-size: 1.1em;
+  color: #eee;
+
+  &:hover{
+    opacity: 0.8;
+  }
+  &:active{
+    color: turquoise;
+    background-color: #eee;
+    outline: none;
+  }
+}
+
+//クレジット詳細のみに適用するスタイル

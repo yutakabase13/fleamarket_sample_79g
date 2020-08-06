@@ -2,18 +2,19 @@
   %p.Credit-Wrapper__title= "クレジットカード情報を入力"
   = form_tag(pay_credit_index_path, mehotd: :post, id: 'charge-form', name: "inputForm", class: "Credit-Wrapper__form") do
     %span.charge-errors
-    .register-inner__content
+    .Register-Inner
 
-      .form-group
-        %span.registration_font カード番号
-        %span.require-icon 必須
-        %input.number.input-default{maxlength: "16", name: "number", placeholder: "カード番号", type: "text", id: "payment_card_no"}/
+      .Register-Inner__form
+        %span.Register-Inner__label カード番号
+        %span.Register-Inner__require 必須
+        %input.Register-Inner__input-number.number.input-default{maxlength: "16", name: "number", placeholder: "カード番号", type: "text", id: "payment_card_no"}/
+        = image_tag("/images/credit-groups.png", class:"Register-Inner__cards")
 
-      .form-group
-        %span.registration_font 有効期限
-        %span.require-icon 必須
-        .expiration_date_box
-          .expiration_date_box__wrap
+      .Register-Inner__select
+        %span.Register-Inner__label 有効期限
+        %span.Register-Inner__require 必須
+        .Register-Inner__selects
+          .Register-Inner__month
             %select.exp_month#payment_expiration_date_1i{maxlength: "2", name: "exp_month", type: "text"}
               %option{value: "1"}01
               %option{value: "2"}02
@@ -27,11 +28,9 @@
               %option{value: "10"}10
               %option{value: "11"}11
               %option{value: "12"}12
-            %i.fas.fa-angle-down.payment-select-icon
             %text.expiration_date_box__text 月
 
-        .expiration_date_box
-          .expiration_date_box__wrap
+          .Register-Inner__year
             %select.exp_year#payment_expiration_date_2i{maxlength: "4", name: "exp_year", type: "text"}
               %option{value: "2019"}19
               %option{value: "2020"}20
@@ -44,15 +43,14 @@
               %option{value: "2027"}27
               %option{value: "2028"}28
               %option{value: "2029"}29
-            %i.fas.fa-angle-down.payment-select-icon
             %text.expiration_date_box__text 年
 
-      .form-group
-        %span.registration_font セキュリティー番号
-        %span.require-icon 必須
-        %input.cvc.input-default{maxlength: "3", name: "cvc", placeholder: "カード背面もしくは４桁もしくは３桁の番号", type: "text", id: "payment_card_cvc"}
-        .card-indo
-          カード裏面の番号とは
+      .Register-Inner__security
+        %span.Register-Inner__label セキュリティー番号
+        %span.Register-Inner__require 必須
+        %input.Register-Inner__input-security.cvc.input-default{maxlength: "3", name: "cvc", placeholder: "カード背面４桁もしくは３桁の番号", type: "text", id: "payment_card_cvc"}
+        .Register-Inner__card-info
+          = link_to "?カード裏面の番号とは", "#"
       .actions
         %button.register-member#submit-button{type: "submit"} 登録完了
   -# = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ", maxlength: "16", type: "text", id: "card_number"

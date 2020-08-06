@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :credit, only: [:new, :show, :destroy] do
     collection do
       post :pay
+      post :delete
+      get :show
       get :buy
     end
   end
