@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'credit/show'
   devise_for :users, controllers: {seessions: 'users/sessions', registrations: 'users/registrations'}
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
